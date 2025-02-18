@@ -1,5 +1,6 @@
 # Node modules
 /node_modules/
+/database/
 
 # Logs
 *.log
@@ -36,6 +37,3 @@ Thumbs.db
 *.pid
 *.seed
 *.pid.lock
-
-/exampleJobs.csv
-/firebaseConfig.js
