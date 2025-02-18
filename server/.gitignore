@@ -36,3 +36,6 @@ Thumbs.db
 *.pid
 *.seed
 *.pid.lock
+
+exampleJobs.csv
+firebaseConfig.js
