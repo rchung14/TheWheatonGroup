@@ -1,0 +1,145 @@
+/* Container */
+.serviceintrocontainer {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1em;
+    padding-top: 5em;
+    position: relative;
+}
+
+/* Services Intro Section */
+.servicesintro {
+    text-align: left;
+    padding: 4em 5%;
+    color: black;
+    position: relative;
+}
+
+.servicesintro span {
+    display: block;
+    font-size: clamp(1em, 1vw, 3em);
+    padding-top: 2em;
+}
+
+.servicesintro h1 {
+    width: 80%;
+    font-size: clamp(2em, 4vw, 4em);
+}
+
+/* Services Image */
+.servicesimgcontainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.servicesimg, .servicesimg2 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Services Sections */
+.servicescontainer {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    gap: 2em;
+    display: flex;
+    padding: 3em 5%;
+    padding-top: 10em;
+    padding-bottom: 10em;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Direct Placement */
+.directplacement, .contractrecruiting {
+    width: 50%;
+    padding: 5em 5%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid #011766;
+    position: relative;
+}
+
+/* Offset sections */
+.directplacement {
+    top: 5em;
+}
+
+.contractrecruiting {
+    top: -5em;
+}
+
+/* Headings */
+.directplacement h2, .contractrecruiting h2 {
+    font-size: clamp(1.5em, 3vw, 3em);
+    margin-bottom: 1em;
+}
+
+/* Paragraphs */
+.directplacement p, .contractrecruiting p {
+    font-size: clamp(1em, 1vw, 1.5em);
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Hover Effects */
+.directplacement:hover, .contractrecruiting:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+    .servicescontainer {
+        flex-direction: column;
+        padding: 3em 2%;
+    }
+
+    .directplacement, .contractrecruiting {
+        width: 90%;
+        margin: 2em auto;
+        top: 0;
+    }
+
+    .directplacement:hover, .contractrecruiting:hover {
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .servicesintro h1 {
+        font-size: 2em;
+    }
+
+    .servicesintro span {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .servicesintro {
+        padding: 2em 1em;
+        text-align: center;
+    }
+
+    .servicesintro h1 {
+        font-size: 1.5em;
+    }
+
+    .servicesintro span {
+        font-size: 0.9em;
+    }
+
+    .servicescontainer {
+        padding: 2em 1em;
+    }
+
+    .directplacement p, .contractrecruiting p {
+        font-size: 0.9em;
+    }
+}

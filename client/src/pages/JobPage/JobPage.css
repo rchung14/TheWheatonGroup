@@ -1,0 +1,138 @@
+.jobpage-container {
+  width: 80%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1em;
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+
+.jobpage-header {
+  padding: 2em 5%;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.company-name {
+  font-size: 2em; 
+}
+
+.jobpage-header h1 {
+  font-size: clamp(2em, 4vw, 3em);
+  margin: 0;
+}
+
+.jobpage-header p {
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+
+.jobpage-description,
+.jobpage-requirements {
+  padding: 2em 5%;
+  text-align: left;
+}
+
+.jobpage-description h2,
+.jobpage-requirements h2 {
+  font-size: clamp(1.5em, 3vw, 2em);
+  margin-bottom: 0.5em;
+}
+
+.jobpage-apply {
+  padding: 2em 5%;
+}
+
+.jobpage-apply h2 {
+  font-size: clamp(1.5em, 3vw, 2em);
+  margin-bottom: 1em;
+}
+
+.jobpage-apply form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 600px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+  padding: 0.8em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.jobpage-apply button {
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  color: #fff;
+  background-color: #011766;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.jobpage-apply button:hover {
+  background-color: #0044cc;
+}
+
+.file-list {
+  list-style: none;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+.file-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9em;
+  padding: 0.3em 0;
+}
+
+.remove-file-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #777;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.remove-file-btn:focus {
+  outline: none;
+}
+
+.remove-file-btn:hover {
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .jobpage-container {
+    padding-top: 3em;
+  }
+  .jobpage-header, 
+  .jobpage-description, 
+  .jobpage-requirements, 
+  .jobpage-apply {
+    padding: 1em 2%;
+  }
+  .jobpage-apply form {
+    max-width: 100%;
+  }
+}

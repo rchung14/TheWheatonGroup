@@ -1,0 +1,64 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 5%;
+    background-color: #011766;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000; 
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.navbar span a {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f9f9f9;
+    text-decoration: none;
+}
+
+.navicons {
+    list-style: none;
+    display: flex;
+    gap: 1.5em; 
+}
+
+.navicons li a {
+    font-size: 1em;
+    font-weight: 500;
+    color: #f9f9f9;
+    text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+    .menu-toggle {
+        display: block; 
+    }
+
+    .navicons {
+        display: none;
+        flex-direction: column;
+        gap: 1em;
+        background-color: #011766; 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        padding: 1em;
+        z-index: 1000;
+    }
+
+    .navicons.show {
+        display: flex; 
+    }
+}

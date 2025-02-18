@@ -1,0 +1,212 @@
+/* Careers Container & Intro */
+.careerscontainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1em;
+  padding-top: 5em;
+  padding-bottom: 10em; 
+  position: relative;
+}
+
+.careersintro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 4em 5%;
+  margin: 0;
+  text-align: left;
+  color: black;
+  position: relative;
+}
+
+.careersintro span {
+  display: block;
+  width: 100%;
+  font-size: clamp(1em, 1vw, 3em);
+  padding-top: 2em;
+  margin: 0;
+}
+
+.careersintro h1 {
+  display: block;
+  width: 80%;
+  font-size: clamp(2em, 4vw, 4em);
+  margin: 0;
+}
+
+/* Search Filters */
+.job-search {
+  width: 100%;
+  margin: 2em 0;
+}
+
+.job-search form {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+/* Input Groups with custom widths */
+.input-group {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.input-group.job-title {
+  flex: 1 1 clamp(250px, 35%, 350px);
+}
+
+.input-group.city {
+  flex: 1 1 clamp(150px, 20%, 200px);
+}
+
+.input-group.industry {
+  flex: 1 1 clamp(150px, 20%, 200px);
+}
+
+.input-group.worktype {
+  flex: 1 1 clamp(100px, 15%, 150px);
+}
+
+/* Override inputs and select to fill their group */
+.job-search input,
+.job-search select {
+  display: block;
+  width: 100%;
+  padding: 0.8em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0;
+}
+
+/* Search Button with auto width */
+.job-search button {
+  display: block;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0;
+  width: auto;
+  background-color: #011766;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.job-search button:hover {
+  background-color: #0044cc;
+}
+
+/* Suggestions Dropdown */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 10;
+  max-height: 150px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestions li {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Job Listings */
+.job-listings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2em 0;
+}
+
+.job-card {
+  display: block;
+  width: 70%;
+  padding: 1.5em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.job-card h2 {
+  font-size: 1.5em;
+  margin: 0 0 0.5em 0;
+}
+
+.job-card p {
+  margin: 0.5em 0;
+}
+
+/* Apply Now Button */
+.job-card button.apply-btn {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  color: #fff;
+  background-color: #011766;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.job-card button.apply-btn:hover {
+  background-color: #0044cc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  gap: 1em;
+}
+
+.pagination button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background-color: #011766;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #0044cc;
+}
+
+.pagination span {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1000px) {
+  .job-card {
+    width: 90%;
+  }
+}
