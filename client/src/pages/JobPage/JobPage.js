@@ -33,7 +33,7 @@ const JobPage = () => {
         setError("Error fetching job details.");
         setLoading(false);
       });
-  }, [apiBaseUrl, jobId]);
+  }, [jobId]);
 
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
