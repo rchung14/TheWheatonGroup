@@ -1,1 +1,3 @@
-server/database
+server/database/exampleJobs.csv
+server/database/loadJobs.js
+
