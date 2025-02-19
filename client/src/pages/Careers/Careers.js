@@ -28,8 +28,10 @@ export const Careers = () => {
 
   const navigate = useNavigate();
 
+  const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:2000";
+
   useEffect(() => {
-    fetch("http://localhost:2000/jobs")
+    fetch(`${apiBaseUrl}/jobs`)
       .then((response) => response.json())
       .then((data) => {
         if (data && typeof data === "object") {
@@ -39,7 +41,7 @@ export const Careers = () => {
         }
       })
       .catch((error) => console.error("Error fetching jobs:", error));
-  }, []);
+  }, [apiBaseUrl]);
 
   // Suggestions based on current input values
   const jobTitleSuggestions = Array.from(

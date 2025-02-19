@@ -28,7 +28,8 @@ export const Contact = () => {
     setStatusMessage('');
 
     try {
-      const response = await fetch('http://localhost:2000/send-email', {
+      const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:2000";
+      const response = await fetch(`${apiBaseUrl}/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

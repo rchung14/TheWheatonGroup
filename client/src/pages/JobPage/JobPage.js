@@ -19,9 +19,12 @@ const JobPage = () => {
   // Create a ref for the file input
   const fileInputRef = useRef(null);
 
+  // Use environment variable for API base URL
+  const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:2000";
+
   useEffect(() => {
-    // Fetch job details by jobId; adjust the endpoint as needed.
-    fetch(`http://localhost:2000/jobs/${jobId}`)
+    // Fetch job details using the API base URL from the environment variable
+    fetch(`${apiBaseUrl}/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched job data:", data); // Debug log
@@ -33,7 +36,7 @@ const JobPage = () => {
         setError("Error fetching job details.");
         setLoading(false);
       });
-  }, [jobId]);
+  }, [apiBaseUrl, jobId]);
 
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
@@ -90,7 +93,7 @@ const JobPage = () => {
       formData.append("files", file);
     });
 
-    fetch("http://localhost:2000/apply-job", {
+    fetch(`${apiBaseUrl}/apply-job`, {
       method: "POST",
       body: formData,
     })
