@@ -90,7 +90,7 @@ const JobPage = () => {
       formData.append("files", file);
     });
 
-    fetch(`${apiBaseUrl}/apply-job`, {
+    fetch(`https://thewheatongroup.onrender.com/apply-job`, {
       method: "POST",
       body: formData,
     })
