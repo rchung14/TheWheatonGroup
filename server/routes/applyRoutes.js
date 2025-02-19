@@ -28,7 +28,7 @@ router.post('/apply-job', upload.array('files', 5), async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'will@wheaton-group.com',
+      to: 'ryanchung14@gmail.com',
       subject: `Job Application for ${jobTitle} at ${company}`,
       text: `Applicant Name: ${applicantName}\nApplicant Email: ${applicantEmail}\nApplicant Phone: ${applicantPhone}\nJob ID: ${jobId}\nJob Title: ${jobTitle}\nCompany: ${company}`,
       attachments: attachments,
