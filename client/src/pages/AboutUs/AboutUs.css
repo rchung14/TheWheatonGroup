@@ -271,7 +271,7 @@
   @media (max-width: 600px) {
     /* Increase top padding on primary containers for the fixed navbar */
     .aboutuscontainer {
-      padding-top: 8em;
+      padding-top: 4em;
       padding-bottom: 5em;
     }
     
@@ -308,7 +308,7 @@
     .foundercontainer {
       width: 95%;
       padding: 3em 5%;
-      padding-top: 8em; /* Increased top padding for mobile */
+      padding-top: 4em; /* Increased top padding for mobile */
     }
     
     .foundercontainer h3 {
