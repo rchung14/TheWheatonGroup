@@ -204,6 +204,7 @@
 @media (max-width: 1000px) {
   .intro {
     padding: 1em;
+    padding-top: 4em;
   }
   .intro h1 {
     width: 100%;
@@ -234,6 +235,7 @@
   .intro {
     padding: 1em;
     font-size: 1.2em;
+    padding-top: 4em;
   }
   .intro h1 {
     font-size: 1.8em;
