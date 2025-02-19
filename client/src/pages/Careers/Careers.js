@@ -29,7 +29,7 @@ export const Careers = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://thewheatongroup.onrender.com/jobs`)
+    fetch("https://thewheatongroup.onrender.com/jobs")
       .then((response) => response.json())
       .then((data) => {
         if (data && typeof data === "object") {
