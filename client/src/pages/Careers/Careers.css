@@ -214,7 +214,8 @@
 /* Mobile Adjustments for screens up to 600px */
 @media (max-width: 600px) {
   .careerscontainer {
-    padding-top: 3em;
+    /* Increased top padding to account for the navbar on mobile */
+    padding-top: 6em;
     padding-bottom: 5em;
   }
   
@@ -238,7 +239,7 @@
     flex: 1 1 100%;
   }
   
-  /* Reduce font-size of buttons and adjust padding if necessary */
+  /* Reduce font-size of inputs, selects, and buttons on mobile */
   .job-search input,
   .job-search select,
   .job-search button {

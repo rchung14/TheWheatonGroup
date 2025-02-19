@@ -253,8 +253,9 @@
 /* Mobile Adjustments (max-width: 600px) */
 @media (max-width: 600px) {
   .container {
+    width: 95%;
     padding: 0.5em;
-    padding-top: 3em;
+    padding-top: 6em; /* Increased top padding for mobile */
   }
   
   .intro {
@@ -276,7 +277,7 @@
   }
   
   .herosection {
-    padding: 3em 5%;
+    padding: 5em 5%; /* Increased top padding for mobile */
   }
   
   .heroblurb {

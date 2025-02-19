@@ -1,3 +1,4 @@
+/* Container */
 .contactcontainer {
     width: 100%;
     max-width: 1400px;
@@ -5,72 +6,74 @@
     padding: 1em;
     padding-top: 5em;
     position: relative;
-}
-
-.contactmsg {
+  }
+  
+  /* Intro Section */
+  .contactmsg {
     text-align: left;
     padding: 4em 5%;
     color: black;
     position: relative;
-}
-
-.contactmsg h1 { 
+  }
+  
+  .contactmsg h1 { 
     width: 100%;
     font-size: clamp(1em, 1vw, 3em);
     padding-top: 2em;
-}
-
-.contactmsg span {
+  }
+  
+  .contactmsg span {
     width: 80%;
     font-size: clamp(2em, 4vw, 4em);
-}
-
-.contactform {
+  }
+  
+  /* Contact Form */
+  .contactform {
     width: 100%;
     max-width: 800px;
     margin: 2em auto;
     background: #f9f9f9;
     padding: 2em 2%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contactform form {
+  }
+  
+  .contactform form {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     display: flex;
     flex-direction: column;
-}
-
-.form-group label {
+  }
+  
+  .form-group label {
     font-size: 1em;
     margin-bottom: 0.5em;
     font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
+  }
+  
+  .form-group input,
+  .form-group textarea {
     padding: 0.8em;
     font-size: 1em;
     border: 1px solid #ccc;
     outline: none;
     transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
     border-color: #011766;
-}
-
-textarea {
+  }
+  
+  textarea {
     resize: none;
     height: 100px;
-}
-
-.submit {
+  }
+  
+  .submit {
     padding: 0.8em 1.5em;
     font-size: 1em;
     font-weight: bold;
@@ -80,8 +83,50 @@ textarea {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.submit:hover {
+  }
+  
+  .submit:hover {
     background-color: #0133aa;
-}
+  }
+  
+  /* Responsive Styles for Mobile Devices (max-width: 600px) */
+  @media (max-width: 600px) {
+    .contactcontainer {
+      width: 95%;
+      padding: 0.5em;
+      /* Increase top padding for mobile to account for the navbar */
+      padding-top: 8em;
+    }
+    
+    .contactmsg {
+      padding: 2em 5%;
+    }
+    
+    .contactmsg h1 {
+      font-size: 1.5em;
+    }
+    
+    .contactmsg span {
+      font-size: 2em;
+    }
+    
+    .contactform {
+      padding: 1.5em 3%;
+      margin: 1.5em auto;
+    }
+    
+    .form-group label {
+      font-size: 0.9em;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      padding: 0.6em;
+      font-size: 0.9em;
+    }
+    
+    .submit {
+      padding: 0.6em 1em;
+      font-size: 0.9em;
+    }
+  }
