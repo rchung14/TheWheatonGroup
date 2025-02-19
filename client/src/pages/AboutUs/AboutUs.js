@@ -61,10 +61,10 @@ export const AboutUs = () => {
           >
             <i className="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="mailto:ryanchung14@gmail.com" className="email">
+          <a href="mailto:will@wheaton-group.com" className="email">
             <i className="fas fa-envelope"></i> Email
           </a>
-          <a href="tel:+16103317775" className="phone">
+          <a href="tel:+16097077128" className="phone">
             <i className="fas fa-phone-alt"></i> Phone
           </a>
         </section>
