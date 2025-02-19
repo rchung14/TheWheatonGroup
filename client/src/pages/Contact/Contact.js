@@ -30,9 +30,7 @@ export const Contact = () => {
 
     try {
       // If not set, it falls back to a relative URL.
-      const apiBaseUrl = process.env.REACT_APP_API_URL || '';
-      
-      const response = await fetch(`${apiBaseUrl}/send-email`, {
+      const response = await fetch(`https://thewheatongroup.onrender.com/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
