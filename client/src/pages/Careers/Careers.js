@@ -28,10 +28,8 @@ export const Careers = () => {
 
   const navigate = useNavigate();
 
-  const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:2000";
-
   useEffect(() => {
-    fetch(`${apiBaseUrl}/jobs`)
+    fetch(`https://thewheatongroup.onrender.com/jobs`)
       .then((response) => response.json())
       .then((data) => {
         if (data && typeof data === "object") {

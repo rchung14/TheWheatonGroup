@@ -19,12 +19,9 @@ const JobPage = () => {
   // Create a ref for the file input
   const fileInputRef = useRef(null);
 
-  // Use environment variable for API base URL
-  const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:2000";
-
   useEffect(() => {
     // Fetch job details using the API base URL from the environment variable
-    fetch(`${apiBaseUrl}/jobs/${jobId}`)
+    fetch(`https://thewheatongroup.onrender.com/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched job data:", data); // Debug log
