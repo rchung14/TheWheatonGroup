@@ -14,6 +14,7 @@ export const Contact = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -28,7 +29,9 @@ export const Contact = () => {
     setStatusMessage('');
 
     try {
-      const apiBaseUrl = process.env.REACT_APP_API_URL;
+      // If not set, it falls back to a relative URL.
+      const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+      
       const response = await fetch(`${apiBaseUrl}/send-email`, {
         method: 'POST',
         headers: {
