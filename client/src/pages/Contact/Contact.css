@@ -94,8 +94,7 @@
     .contactcontainer {
       width: 95%;
       padding: 0.5em;
-      /* Increase top padding for mobile to account for the navbar */
-      padding-top: 8em;
+      padding-top: 4em;
     }
     
     .contactmsg {

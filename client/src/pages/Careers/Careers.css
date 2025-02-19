@@ -214,9 +214,8 @@
 /* Mobile Adjustments for screens up to 600px */
 @media (max-width: 600px) {
   .careerscontainer {
-    /* Increased top padding to account for the navbar on mobile */
-    padding-top: 6em;
-    padding-bottom: 5em;
+    padding-top: 4em;
+    padding-bottom: 4em;
   }
   
   .careersintro {

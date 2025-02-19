@@ -157,8 +157,7 @@
     .serviceintrocontainer {
         width: 95%;
         padding: 0.5em;
-        /* Increased top padding to allow room for the fixed navbar */
-        padding-top: 8em;
+        padding-top: 4em;
     }
     
     .servicesintro {
@@ -177,8 +176,7 @@
     .servicescontainer {
         width: 95%;
         padding: 2em 1em;
-        /* Increased top padding for mobile */
-        padding-top: 12em;
+        padding-top: 4em;
         padding-bottom: 5em;
     }
     

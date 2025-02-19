@@ -258,7 +258,7 @@
   /* Job Page adjustments for mobile */
   .jobpage-container {
     width: 95%;
-    padding-top: 6em; /* Increased top padding for mobile */
+    padding-top: 4em;
     padding-bottom: 2em;
   }
   
