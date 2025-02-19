@@ -255,11 +255,11 @@
   .container {
     width: 95%;
     padding: 0.5em;
-    padding-top: 8em; /* Increased top padding for mobile */
   }
   
   .intro {
     padding: 1em 5%;
+    padding-top: 4em;
   }
   
   .intro h1 {
