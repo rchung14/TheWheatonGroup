@@ -28,7 +28,7 @@ export const Contact = () => {
     setStatusMessage('');
 
     try {
-      const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:2000";
+      const apiBaseUrl = process.env.REACT_APP_API_URL;
       const response = await fetch(`${apiBaseUrl}/send-email`, {
         method: 'POST',
         headers: {
