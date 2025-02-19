@@ -204,9 +204,60 @@
   color: #333;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for screens up to 1000px */
 @media (max-width: 1000px) {
   .job-card {
     width: 90%;
+  }
+}
+
+/* Mobile Adjustments for screens up to 600px */
+@media (max-width: 600px) {
+  .careerscontainer {
+    padding-top: 3em;
+    padding-bottom: 5em;
+  }
+  
+  .careersintro {
+    padding: 2em 5%;
+  }
+  
+  .careersintro h1 {
+    width: 100%;
+    font-size: clamp(2em, 6vw, 3em);
+  }
+  
+  /* Stack search form vertically on mobile */
+  .job-search form {
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  /* Make input groups full width */
+  .input-group {
+    flex: 1 1 100%;
+  }
+  
+  /* Reduce font-size of buttons and adjust padding if necessary */
+  .job-search input,
+  .job-search select,
+  .job-search button {
+    font-size: 0.9em;
+    padding: 0.6em;
+  }
+  
+  .job-card {
+    width: 100%;
+    padding: 1em;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  
+  .pagination button,
+  .pagination span {
+    font-size: 0.9em;
   }
 }
