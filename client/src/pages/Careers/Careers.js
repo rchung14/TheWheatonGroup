@@ -39,7 +39,7 @@ export const Careers = () => {
         }
       })
       .catch((error) => console.error("Error fetching jobs:", error));
-  }, [apiBaseUrl]);
+  }, []);
 
   // Suggestions based on current input values
   const jobTitleSuggestions = Array.from(
