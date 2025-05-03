@@ -259,9 +259,6 @@ export const Careers = () => {
                 <p>
                   <strong>Work Type:</strong> {job.workType}
                 </p>
-                <p>
-                  <strong>Description:</strong> {job.blurb}
-                </p>
                 <button
                   className="apply-btn"
                   onClick={() => navigate(`/careers/${job.jobID}`)}
