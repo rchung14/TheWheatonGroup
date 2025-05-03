@@ -77,7 +77,7 @@ export const HomePage = () => {
       <section className="homeimg-container">
         <img
           className="homeimg"
-          src="assets/images/homeimg.png"
+          src="assets/images/homeimg.jpg"
           alt="Home Banner"
         />
       </section>
