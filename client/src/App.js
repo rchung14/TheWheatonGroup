@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import { Analytics } from "@vercel/analytics/react";
 
 // pages
 import HomePage from './pages/HomePage/HomePage';
@@ -14,7 +15,7 @@ import JobPage from './pages/JobPage/JobPage';
 import './styles/global.css';
 
 const App = () => {
-return (
+  return (
     <Router>
       <header>
         <Navbar />
@@ -31,6 +32,7 @@ return (
       <footer>
         <Footer />
       </footer>
+      <Analytics />
     </Router>
   );
 };
