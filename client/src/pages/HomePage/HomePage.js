@@ -1,26 +1,10 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { database } from '../../../server/database/firebaseConfig.js'; 
-import { ref, get } from 'firebase/database';
 import './HomePage.css';
 import DocumentTitle from 'react-document-title';
 import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const pingFirebase = async () => {
-      try {
-        const snapshot = await get(ref(database, '/ping'));
-        console.log('Firebase ping success:', snapshot.exists());
-      } catch (err) {
-        console.error('Firebase ping failed:', err);
-      }
-    };
-
-    pingFirebase();
-  }, []);
 
   return (
     <main className="container">
