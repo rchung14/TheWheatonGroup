@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { database } from '../../../../server/database/firebaseConfig.js'; 
+import { database } from '../../../server/database/firebaseConfig.js'; 
 import { ref, get } from 'firebase/database';
 import './HomePage.css';
 import DocumentTitle from 'react-document-title';
