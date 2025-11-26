@@ -30,7 +30,7 @@ export const Contact = () => {
 
     try {
       // If not set, it falls back to a relative URL.
-      const response = await fetch(`https://thewheatongroup.onrender.com/send-email`, {
+      const response = await fetch(`https://thewheatongroup-1.onrender.com/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

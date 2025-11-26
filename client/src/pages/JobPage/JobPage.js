@@ -21,7 +21,7 @@ const JobPage = () => {
 
   useEffect(() => {
     // Fetch job details using the API base URL from the environment variable
-    fetch(`https://thewheatongroup.onrender.com/jobs/${jobId}`)
+    fetch(`https://thewheatongroup-1.onrender.com/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched job data:", data); // Debug log
