@@ -37,3 +37,7 @@ Thumbs.db
 *.pid
 *.seed
 *.pid.lock
+
+database/JobsDatabase - Jobs.csv
+database/loadJobs.js
+database/serviceAccountKey.json

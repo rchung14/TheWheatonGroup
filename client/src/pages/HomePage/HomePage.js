@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react';
 import './HomePage.css';
 import DocumentTitle from 'react-document-title';
 import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch('/api/ping-firebase')
-      .then(res => res.json())
-      .then(data => console.log(data.message))
-      .catch(err => console.error('Ping failed', err));
-  }, []);
 
   return (
     <main className="container">
