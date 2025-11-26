@@ -32,11 +32,19 @@ export const Careers = () => {
     fetch("https://thewheatongroup-1.onrender.com/jobs")
       .then((response) => response.json())
       .then((data) => {
-        if (data && typeof data === "object") {
-          setJobs(Object.values(data));
-        } else {
-          setJobs([]);
+        let jobsArray = [];
+
+        if (Array.isArray(data)) {
+          jobsArray = data;
+        } else if (data && typeof data === "object") {
+          jobsArray = Object.values(data);
         }
+
+        const cleanedJobs = jobsArray.filter(
+          (job) => job && job.jobID && job.jobTitle
+        );
+
+        setJobs(cleanedJobs);
       })
       .catch((error) => console.error("Error fetching jobs:", error));
   }, []);
@@ -86,7 +94,7 @@ export const Careers = () => {
 
   // Filter jobs using the filter state values and safely access properties
   const filteredJobs = jobs
-    .filter((job) => job != null)
+    .filter((job) => job && job.jobID && job.jobTitle)
     .filter(
       (job) =>
         (searchTermFilter === "" ||
