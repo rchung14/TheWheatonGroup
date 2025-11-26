@@ -271,7 +271,7 @@ export const Careers = () => {
                   className="apply-btn"
                   onClick={() => navigate(`/careers/${job.jobID}`)}
                 >
-                  Apply Now
+                  View Description
                 </button>
               </div>
             ))
