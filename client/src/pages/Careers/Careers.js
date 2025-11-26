@@ -262,9 +262,6 @@ export const Careers = () => {
                   <strong>City:</strong> {job.city}
                 </p>
                 <p>
-                  <strong>Industry:</strong> {job.industry}
-                </p>
-                <p>
                   <strong>Work Type:</strong> {job.workType}
                 </p>
                 <button
