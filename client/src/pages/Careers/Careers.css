@@ -64,10 +64,6 @@
   flex: 1 1 clamp(150px, 20%, 200px);
 }
 
-.input-group.industry {
-  flex: 1 1 clamp(150px, 20%, 200px);
-}
-
 .input-group.worktype {
   flex: 1 1 clamp(100px, 15%, 150px);
 }

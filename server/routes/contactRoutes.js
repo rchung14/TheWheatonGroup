@@ -19,7 +19,8 @@ router.post('/send-email', async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'will@wheaton-group.com',
+      // to: 'will@wheaton-group.com',
+      to: 'ryanchung14@gmail.com',
       subject: 'New Contact Form Submission',
       text: `Full Name: ${firstName} ${lastName}\nPhone Number: ${phoneNumber}\nMessage: ${message}`,
     };

@@ -24,7 +24,6 @@ const JobPage = () => {
     fetch(`https://thewheatongroup-1.onrender.com/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Fetched job data:", data); // Debug log
         setJob(data);
         setLoading(false);
       })
@@ -90,7 +89,7 @@ const JobPage = () => {
       formData.append("files", file);
     });
 
-    fetch(`https://thewheatongroup.onrender.com/apply-job`, {
+    fetch(`https://thewheatongroup-1.onrender.com/apply-job`, {
       method: "POST",
       body: formData,
     })
@@ -126,11 +125,6 @@ const JobPage = () => {
       <section className="jobpage-description">
         <h2>Job Description</h2>
         <p>{job.description || "No description provided."}</p>
-      </section>
-
-      <section className="jobpage-requirements">
-        <h2>Job Requirements</h2>
-        <p>{job.requirements || "No requirements provided."}</p>
       </section>
 
       <section className="jobpage-apply">
@@ -198,7 +192,10 @@ const JobPage = () => {
               </ul>
             )}
           </div>
-          <button type="submit" disabled={files.length === 0 || files.length > 2}>
+          {/* <button type="submit" disabled={files.length === 0 || files.length > 2}>
+            Apply Now
+          </button> */}
+          <button type="submit">
             Apply Now
           </button>
         </form>

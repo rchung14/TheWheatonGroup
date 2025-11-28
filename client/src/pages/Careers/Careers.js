@@ -8,23 +8,20 @@ export const Careers = () => {
   // Input state variables
   const [searchTerm, setSearchTerm] = useState("");
   const [city, setCity] = useState("");
-  const [industry, setIndustry] = useState("");
   const [workType, setWorkType] = useState("");
 
   // Filter state variables (applied only when Search is clicked)
   const [searchTermFilter, setSearchTermFilter] = useState("");
   const [cityFilter, setCityFilter] = useState("");
-  const [industryFilter, setIndustryFilter] = useState("");
   const [workTypeFilter, setWorkTypeFilter] = useState("");
 
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 10;
 
   // Suggestion visibility states
   const [jobTitleSuggestionsVisible, setJobTitleSuggestionsVisible] = useState(false);
   const [citySuggestionsVisible, setCitySuggestionsVisible] = useState(false);
-  const [industrySuggestionsVisible, setIndustrySuggestionsVisible] = useState(false);
 
   const navigate = useNavigate();
 
@@ -78,20 +75,6 @@ export const Careers = () => {
     )
   );
 
-  const industrySuggestions = Array.from(
-    new Set(
-      jobs
-        .filter((job) => job != null)
-        .map((job) => job.industry || "")
-        .filter(
-          (i) =>
-            i &&
-            i.toLowerCase().includes(industry.toLowerCase()) &&
-            industry !== ""
-        )
-    )
-  );
-
   // Filter jobs using the filter state values and safely access properties
   const filteredJobs = jobs
     .filter((job) => job && job.jobID && job.jobTitle)
@@ -101,8 +84,6 @@ export const Careers = () => {
           (job.jobTitle || "").toLowerCase().includes(searchTermFilter.toLowerCase())) &&
         (cityFilter === "" ||
           (job.city || "").toLowerCase().includes(cityFilter.toLowerCase())) &&
-        (industryFilter === "" ||
-          (job.industry || "").toLowerCase().includes(industryFilter.toLowerCase())) &&
         (workTypeFilter === "" ||
           (job.workType || "").toLowerCase() === workTypeFilter.toLowerCase())
     );
@@ -117,7 +98,6 @@ export const Careers = () => {
     e.preventDefault();
     setSearchTermFilter(searchTerm);
     setCityFilter(city);
-    setIndustryFilter(industry);
     setWorkTypeFilter(workType);
     setCurrentPage(1);
     setShowResults(true);
@@ -130,9 +110,6 @@ export const Careers = () => {
     } else if (field === "city") {
       setCity(value);
       setCitySuggestionsVisible(false);
-    } else if (field === "industry") {
-      setIndustry(value);
-      setIndustrySuggestionsVisible(false);
     }
   };
 
@@ -198,37 +175,6 @@ export const Careers = () => {
                   <li
                     key={idx}
                     onMouseDown={() => selectSuggestion("city", suggestion)}
-                  >
-                    {suggestion}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <div className="input-group industry">
-            <input
-              type="text"
-              placeholder="Enter industry..."
-              value={industry}
-              onChange={(e) => {
-                setIndustry(e.target.value);
-                setIndustrySuggestionsVisible(true);
-              }}
-              onBlur={() =>
-                setTimeout(() => setIndustrySuggestionsVisible(false), 100)
-              }
-              onFocus={() => {
-                if (industry !== "") setIndustrySuggestionsVisible(true);
-              }}
-            />
-            {industrySuggestionsVisible && industrySuggestions.length > 0 && (
-              <ul className="suggestions">
-                {industrySuggestions.map((suggestion, idx) => (
-                  <li
-                    key={idx}
-                    onMouseDown={() =>
-                      selectSuggestion("industry", suggestion)
-                    }
                   >
                     {suggestion}
                   </li>
