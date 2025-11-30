@@ -16,7 +16,7 @@ const JobPage = () => {
   const [applicantPhone, setApplicantPhone] = useState("");
   const [files, setFiles] = useState([]);
 
-  // Create a ref for the file input
+  // Create a ref for the file inputs
   const fileInputRef = useRef(null);
 
   useEffect(() => {
