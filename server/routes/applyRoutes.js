@@ -25,7 +25,8 @@ router.post('/apply-job', upload.array('files', 5), async (req, res) => {
       // to: 'will@wheaton-group.com',
       to: 'ryanchung1430@gmail.com',
       subject: `Job Application for ${jobTitle} at ${company}`,
-      text: `Applicant Name: ${applicantName}\nApplicant Email: ${applicantEmail}\nApplicant Phone: ${applicantPhone}\nJob ID: ${jobId}\nJob Title: ${jobTitle}\nCompany: ${company}`,
+      text: `Applicant Name: ${applicantName}\nApplicant Email: ${applicantEmail}\nApplicant Phone: \
+      ${applicantPhone}\nJob ID: ${jobId}\nJob Title: ${jobTitle}\nCompany: ${company}`,
       attachments,
     });
 
@@ -35,6 +36,20 @@ router.post('/apply-job', upload.array('files', 5), async (req, res) => {
     }
 
     console.log('Email sent via Resend:', data);
+
+    // Confirmation email to applicant
+    const { error: confirmationError } = await resend.emails.send({
+      from: process.env.EMAIL_USER,
+      to: applicantEmail,
+      subject: 'Your Application Has Been Received',
+      text: `Hello ${applicantName},\n\nThank you for applying for the position of ${jobTitle}.\n\nWe have received your \
+      application and our team will review it shortly.\n\nThank you for your interest and we will be reaching out shortly.`,
+    });
+
+    if (confirmationError) {
+      console.error('Error sending confirmation email:', confirmationError);
+    }
+
     res.status(200).json({ success: true, message: 'Application submitted successfully!' });
   } catch (error) {
     console.error("Error sending email:", error);
