@@ -13,7 +13,8 @@ router.post('/send-email', async (req, res) => {
   try {
     const { data, error: resendError } = await resend.emails.send({
       from: process.env.EMAIL_USER,
-      to: 'ryanchung1430@gmail.com',
+      to: 'will@wheaton-group.com',
+      // to: 'ryanchung1430@gmail.com',
       subject: 'New Contact Form Submission',
       text: `Full Name: ${firstName} ${lastName}\nPhone Number: ${phoneNumber}\nMessage: ${message}`,
     });
