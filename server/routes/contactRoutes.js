@@ -10,6 +10,11 @@ const router = Router();
 
 router.post('/send-email', async (req, res) => {
   const { firstName, lastName, phoneNumber, message } = req.body;
+
+  if (!firstName || !lastName || !phoneNumber || !message) {
+    return res.status(400).send({ success: false, message: 'Missing required fields.' });
+  }
+
   try {
     const { data, error: resendError } = await resend.emails.send({
       from: process.env.EMAIL_USER,

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DocumentTitle from "react-document-title";
 import "./JobPage.css";
+import { API_BASE_URL } from "../../config";
 
 const JobPage = () => {
   const { jobId } = useParams(); // expects route like /careers/:jobId
@@ -21,7 +22,7 @@ const JobPage = () => {
 
   useEffect(() => {
     // Fetch job details using the API base URL from the environment variable
-    fetch(`https://thewheatongroup-1.onrender.com/jobs/${jobId}`)
+    fetch(`${API_BASE_URL}/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
         setJob(data);
@@ -89,7 +90,7 @@ const JobPage = () => {
       formData.append("files", file);
     });
 
-    fetch(`https://thewheatongroup-1.onrender.com/apply-job`, {
+    fetch(`${API_BASE_URL}/apply-job`, {
       method: "POST",
       body: formData,
     })

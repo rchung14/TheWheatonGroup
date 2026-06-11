@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Careers.css";
 import DocumentTitle from "react-document-title";
+import { API_BASE_URL } from "../../config";
 
 export const Careers = () => {
   const [jobs, setJobs] = useState([]);
@@ -26,7 +27,7 @@ export const Careers = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://thewheatongroup-1.onrender.com/jobs")
+    fetch(`${API_BASE_URL}/jobs`)
       .then((response) => response.json())
       .then((data) => {
         let jobsArray = [];

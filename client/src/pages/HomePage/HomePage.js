@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
 import './HomePage.css';
 import DocumentTitle from 'react-document-title';
 import { useNavigate } from 'react-router-dom';
+import { pingBackend } from '../../config';
 
 export const HomePage = () => {
   const navigate = useNavigate();
+
+  // Every homepage load wakes the Render backend (and Firebase via its "/" route).
+  useEffect(() => {
+    pingBackend();
+  }, []);
 
   return (
     <main className="container">

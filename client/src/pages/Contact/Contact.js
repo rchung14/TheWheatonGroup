@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Contact.css'; 
 import DocumentTitle from 'react-document-title';
+import { API_BASE_URL } from '../../config';
 
 export const Contact = () => {
   const navigate = useNavigate();
@@ -29,8 +30,7 @@ export const Contact = () => {
     setStatusMessage('');
 
     try {
-      // If not set, it falls back to a relative URL.
-      const response = await fetch(`https://thewheatongroup-1.onrender.com/send-email`, {
+      const response = await fetch(`${API_BASE_URL}/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
