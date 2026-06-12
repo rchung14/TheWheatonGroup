@@ -98,7 +98,7 @@
 }
 
 .careers-job__city {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
   color: var(--gray-mid);
