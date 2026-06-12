@@ -1,202 +1,142 @@
-/* Container */
-.serviceintrocontainer {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1em;
-    padding-top: 5em;
-    position: relative;
+/* Service detail blocks — copy + callout aside */
+.services-detail__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--sp-8);
+  align-items: start;
 }
 
-/* Services Intro Section */
-.servicesintro {
-    text-align: left;
-    padding: 4em 5%;
-    color: black;
-    position: relative;
+.services-detail__copy p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-3);
+  max-width: 560px;
 }
 
-.servicesintro span {
-    display: block;
-    font-size: clamp(1em, 1vw, 3em);
-    padding-top: 2em;
+/* Callout — guarantee / hourly model */
+.services-callout {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-top: 3px solid var(--accent-gold);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
 }
 
-.servicesintro h1 {
-    width: 80%;
-    font-size: clamp(2em, 4vw, 4em);
+.services-callout__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--navy);
+  color: var(--white);
+  border-radius: var(--radius);
+  margin-bottom: var(--sp-3);
 }
 
-/* Services Image */
-.servicesimgcontainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 2em 0;
+.services-callout p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-1);
 }
 
-.servicesimg, 
-.servicesimg2 {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Comparison table */
+.services-compare__wrap {
+  margin-top: var(--sp-6);
+  overflow-x: auto;
 }
 
-/* Services Sections */
-.servicescontainer {
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-    gap: 2em;
-    display: flex;
-    padding: 3em 5%;
-    padding-top: 10em;
-    padding-bottom: 10em;
-    text-align: center;
-    justify-content: center;
-    align-items: flex-start;
+.services-compare {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
 }
 
-/* Direct Placement */
-.directplacement,
-.contractrecruiting {
-    width: 50%;
-    padding: 5em 5%;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-bottom: 4px solid #011766;
-    position: relative;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+.services-compare th,
+.services-compare td {
+  text-align: left;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--gray-light);
+  font-size: 15px;
+  min-width: 180px;
 }
 
-/* Offset sections */
-.directplacement {
-    top: 5em;
+.services-compare thead th {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--navy);
+  color: var(--white);
 }
 
-.contractrecruiting {
-    top: -5em;
+.services-compare tbody th {
+  font-weight: 600;
+  color: var(--black);
+  background-color: var(--off-white);
+  white-space: nowrap;
 }
 
-/* Headings */
-.directplacement h2, 
-.contractrecruiting h2 {
-    font-size: clamp(1.5em, 3vw, 3em);
-    margin-bottom: 1em;
+.services-compare td {
+  color: var(--gray-mid);
 }
 
-/* Paragraphs */
-.directplacement p, 
-.contractrecruiting p {
-    font-size: clamp(1em, 1vw, 1.5em);
-    line-height: 1.6;
-    color: #333;
+.services-compare tbody tr:last-child th,
+.services-compare tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* Hover Effects */
-.directplacement:hover,
-.contractrecruiting:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
+/* Process timeline — 4 steps */
+.services-process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
 }
 
-/* Responsive Styles for Tablet Screens (max-width: 1000px) */
-@media (max-width: 1000px) {
-    .servicescontainer {
-        flex-direction: column;
-        padding: 3em 2%;
-    }
-
-    .directplacement, 
-    .contractrecruiting {
-        width: 90%;
-        margin: 2em auto;
-        top: 0;
-    }
-
-    .directplacement:hover, 
-    .contractrecruiting:hover {
-        transform: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .servicesintro h1 {
-        font-size: 2em;
-    }
-
-    .servicesintro span {
-        font-size: 1em;
-    }
+.services-step {
+  position: relative;
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* Responsive Styles for Small Tablets (max-width: 768px) */
-@media (max-width: 768px) {
-    .servicesintro {
-        padding: 2em 1em;
-    }
-
-    .servicesintro h1 {
-        font-size: 1.5em;
-    }
-
-    .servicesintro span {
-        font-size: 0.9em;
-    }
-
-    .servicescontainer {
-        padding: 2em 1em;
-    }
-
-    .directplacement p, 
-    .contractrecruiting p {
-        font-size: 0.9em;
-    }
+.services-step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
-/* Responsive Styles for Mobile Devices (max-width: 600px) */
-@media (max-width: 600px) {
-    .serviceintrocontainer {
-        width: 95%;
-        padding: 0.5em;
-        padding-top: 4em;
-    }
-    
-    .servicesintro {
-        padding: 1.5em 5%;
-    }
-    
-    .servicesintro h1 {
-        font-size: 1.5em;
-        width: 100%;
-    }
-    
-    .servicesimgcontainer {
-        margin: 1.5em 0;
-    }
-    
-    .servicescontainer {
-        width: 95%;
-        padding: 2em 1em;
-        padding-top: 4em;
-        padding-bottom: 5em;
-    }
-    
-    .directplacement, 
-    .contractrecruiting {
-        width: 100%;
-        margin: 1em auto;
-        top: 0;
-        padding: 3em 3%;
-    }
-    
-    .directplacement h2, 
-    .contractrecruiting h2 {
-        font-size: 1.5em;
-    }
-    
-    .directplacement p, 
-    .contractrecruiting p {
-        font-size: 1em;
-    }
+.services-step__num {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.services-step p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .services-detail__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .services-process__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-process__grid {
+    grid-template-columns: 1fr;
+  }
 }
