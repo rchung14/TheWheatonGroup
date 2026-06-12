@@ -101,6 +101,9 @@ export const AboutUs = () => {
               className="about-founder__photo"
               src="/assets/images/headshotexample.webp"
               alt="William Hwang, Principal of The Wheaton Group, LLC"
+              width="350"
+              height="397"
+              loading="lazy"
             />
             <div className="about-founder__bio">
               <h3>William Hwang, Principal</h3>

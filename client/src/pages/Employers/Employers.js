@@ -27,24 +27,32 @@ const VALUE_PROPS = [
 const STEPS = [
   {
     image: '/assets/images/servicesimg-bottom.webp',
+    width: 1024,
+    height: 683,
     alt: 'Taking notes together at a sunlit table',
     title: 'Discovery',
     body: 'We learn the role, the team, and what success looks like.',
   },
   {
     image: '/assets/images/careersimg.webp',
+    width: 1024,
+    height: 577,
     alt: 'A team working around an office table',
     title: 'Sourcing',
     body: 'We tap our network to surface qualified, interested candidates.',
   },
   {
     image: '/assets/images/whoweare-img1.webp',
+    width: 1280,
+    height: 854,
     alt: 'A one-on-one interview by a city window',
     title: 'Interviews',
     body: 'You meet a curated shortlist — no resume floods.',
   },
   {
     image: '/assets/images/hero-img1.webp',
+    width: 1280,
+    height: 854,
     alt: 'Two professionals reviewing an offer on a laptop',
     title: 'Placement',
     body: 'We close the offer and stay engaged through onboarding.',
@@ -95,9 +103,9 @@ export const Employers = () => {
           <SectionEyebrow>How It Works</SectionEyebrow>
           <h2>Four Steps to Your Next Hire.</h2>
           <div className="employers-steps__grid">
-            {STEPS.map(({ image, alt, title, body }, index) => (
+            {STEPS.map(({ image, width, height, alt, title, body }, index) => (
               <div key={title} className="employers-step">
-                <img src={image} alt={alt} />
+                <img src={image} alt={alt} width={width} height={height} loading="lazy" />
                 <div className="employers-step__body">
                   <span className="employers-step__num">{index + 1}</span>
                   <h3>{title}</h3>

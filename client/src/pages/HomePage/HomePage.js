@@ -72,6 +72,9 @@ export const HomePage = () => {
             <img
               src="/assets/images/hero-img1.webp"
               alt="Two business professionals working out a solution"
+              width="1280"
+              height="854"
+              fetchpriority="high"
             />
           </div>
         </div>
@@ -98,6 +101,9 @@ export const HomePage = () => {
             <img
               src="/assets/images/whoweare-img1.webp"
               alt="A one-on-one meeting between a recruiter and a candidate"
+              width="1280"
+              height="854"
+              loading="lazy"
             />
           </div>
         </div>

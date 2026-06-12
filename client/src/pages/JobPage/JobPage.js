@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Seo from "../../components/Seo/Seo";
+import NotFound from "../NotFound/NotFound";
 import "./JobPage.css";
 import { API_BASE_URL } from "../../config";
 import SectionEyebrow from "../../components/SectionEyebrow/SectionEyebrow";
@@ -32,10 +33,21 @@ const JobPage = () => {
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/jobs/${jobId}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          // Expired/unknown job IDs render the 404 page (with noindex) so
+          // stale listings drop out of search indexes instead of soft-404ing.
+          setError(response.status === 404 ? "not-found" : "Error fetching job details.");
+          setLoading(false);
+          return null;
+        }
+        return response.json();
+      })
       .then((data) => {
-        setJob(data);
-        setLoading(false);
+        if (data) {
+          setJob(data);
+          setLoading(false);
+        }
       })
       .catch(() => {
         setError("Error fetching job details.");
@@ -114,8 +126,8 @@ const JobPage = () => {
   };
 
   if (loading) return <main className="jobpage-status">Loading job details...</main>;
+  if (error === "not-found" || (!loading && !error && !job)) return <NotFound />;
   if (error) return <main className="jobpage-status">{error}</main>;
-  if (!job) return <main className="jobpage-status">No job found.</main>;
 
   // Google Jobs / ATS structured data for this listing
   const jobPostingSchema = {
@@ -131,6 +143,7 @@ const JobPage = () => {
       "@type": "Place",
       address: { "@type": "PostalAddress", addressLocality: job.city },
     },
+    ...(job.datePosted && { datePosted: job.datePosted }),
     ...(job.workType === "Remote" && { jobLocationType: "TELECOMMUTE" }),
     ...(job.industry && { industry: job.industry }),
     identifier: {
