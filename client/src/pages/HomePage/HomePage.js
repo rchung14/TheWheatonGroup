@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './HomePage.css';
-import DocumentTitle from 'react-document-title';
+import Seo from '../../components/Seo/Seo';
 import { Link } from 'react-router-dom';
 import { pingBackend } from '../../config';
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow';
@@ -46,7 +46,10 @@ export const HomePage = () => {
 
   return (
     <main className="home">
-      <DocumentTitle title="Home | The Wheaton Group, LLC" />
+      <Seo
+        title="The Wheaton Group, LLC | Talent Acquisition & Recruiting"
+        description="The Wheaton Group, LLC is a talent acquisition consultancy offering direct placement with a 90-day guarantee and flexible contract recruiting. Browse open jobs or partner with us to hire the right candidate."
+      />
 
       {/* Hero — split layout, off-white bg */}
       <section className="home-hero">
@@ -67,7 +70,7 @@ export const HomePage = () => {
           </div>
           <div className="home-hero__image">
             <img
-              src="/assets/images/hero-img1.jpg"
+              src="/assets/images/hero-img1.webp"
               alt="Two business professionals working out a solution"
             />
           </div>
@@ -93,7 +96,7 @@ export const HomePage = () => {
           </div>
           <div className="home-about__image">
             <img
-              src="/assets/images/whoweare-img1.jpg"
+              src="/assets/images/whoweare-img1.webp"
               alt="A one-on-one meeting between a recruiter and a candidate"
             />
           </div>

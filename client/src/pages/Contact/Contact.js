@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Contact.css';
-import DocumentTitle from 'react-document-title';
+import Seo from '../../components/Seo/Seo';
 import { API_BASE_URL } from '../../config';
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow';
 import Button from '../../components/Button/Button';
@@ -77,7 +77,10 @@ export const Contact = () => {
 
   return (
     <main className="contact">
-      <DocumentTitle title="Contact | The Wheaton Group, LLC" />
+      <Seo
+        title="Contact | The Wheaton Group, LLC"
+        description="Get in touch with The Wheaton Group, LLC to discuss direct placement or contract recruiting. Call, email, or send us a message — success starts here."
+      />
 
       {/* Page hero — navy bar */}
       <section className="page-hero">

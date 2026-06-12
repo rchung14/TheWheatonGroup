@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Careers.css";
-import DocumentTitle from "react-document-title";
+import Seo from "../../components/Seo/Seo";
 import { API_BASE_URL } from "../../config";
 import SectionEyebrow from "../../components/SectionEyebrow/SectionEyebrow";
 import Button from "../../components/Button/Button";
@@ -130,7 +130,10 @@ export const Careers = () => {
 
   return (
     <main className="careers">
-      <DocumentTitle title="Careers | The Wheaton Group, LLC" />
+      <Seo
+        title="Careers | The Wheaton Group, LLC"
+        description="Browse open positions across industries and locations. Search jobs by title, city, and work type, then apply directly through The Wheaton Group, LLC."
+      />
 
       {/* Page hero — navy bar */}
       <section className="page-hero">

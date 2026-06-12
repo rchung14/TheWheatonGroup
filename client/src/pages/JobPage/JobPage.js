@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import DocumentTitle from "react-document-title";
+import Seo from "../../components/Seo/Seo";
 import "./JobPage.css";
 import { API_BASE_URL } from "../../config";
 import SectionEyebrow from "../../components/SectionEyebrow/SectionEyebrow";
@@ -140,9 +140,17 @@ const JobPage = () => {
     },
   };
 
+  // Meta descriptions get truncated in search results past ~160 characters.
+  const metaDescription = job.description
+    ? `${job.description.slice(0, 157).trimEnd()}${job.description.length > 157 ? "…" : ""}`
+    : `Apply for ${job.jobTitle} (${job.city}) through The Wheaton Group, LLC.`;
+
   return (
     <main className="jobpage">
-      <DocumentTitle title={`Careers | ${job.jobTitle}`} />
+      <Seo
+        title={`${job.jobTitle} | Careers | The Wheaton Group, LLC`}
+        description={metaDescription}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}

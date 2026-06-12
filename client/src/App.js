@@ -14,6 +14,7 @@ import Services from './pages/Services/Services';
 import Employers from './pages/Employers/Employers';
 import Careers from './pages/Careers/Careers';
 import JobPage from './pages/JobPage/JobPage';
+import NotFound from './pages/NotFound/NotFound';
 import './styles/global.css';
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/employers" element={<Employers />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:jobId" element={<JobPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </ErrorBoundary>
       <footer>

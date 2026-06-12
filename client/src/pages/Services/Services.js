@@ -1,6 +1,6 @@
 import React from 'react';
 import './Services.css';
-import DocumentTitle from 'react-document-title';
+import Seo from '../../components/Seo/Seo';
 import { Link } from 'react-router-dom';
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow';
 import Button from '../../components/Button/Button';
@@ -55,7 +55,10 @@ const PROCESS = [
 export const Services = () => {
   return (
     <main className="services">
-      <DocumentTitle title="Services | The Wheaton Group, LLC" />
+      <Seo
+        title="Services | The Wheaton Group, LLC"
+        description="Direct placement with a 90-day guarantee and hourly contract recruiting. Compare our services and find the hiring model that fits your needs."
+      />
 
       {/* Page hero — navy bar */}
       <section className="page-hero">

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Employers.css';
-import DocumentTitle from 'react-document-title';
+import Seo from '../../components/Seo/Seo';
 import { Link } from 'react-router-dom';
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow';
 import Button from '../../components/Button/Button';
@@ -26,25 +26,25 @@ const VALUE_PROPS = [
 
 const STEPS = [
   {
-    image: '/assets/images/servicesimg-bottom.jpg',
+    image: '/assets/images/servicesimg-bottom.webp',
     alt: 'Taking notes together at a sunlit table',
     title: 'Discovery',
     body: 'We learn the role, the team, and what success looks like.',
   },
   {
-    image: '/assets/images/careersimg.jpg',
+    image: '/assets/images/careersimg.webp',
     alt: 'A team working around an office table',
     title: 'Sourcing',
     body: 'We tap our network to surface qualified, interested candidates.',
   },
   {
-    image: '/assets/images/whoweare-img1.jpg',
+    image: '/assets/images/whoweare-img1.webp',
     alt: 'A one-on-one interview by a city window',
     title: 'Interviews',
     body: 'You meet a curated shortlist — no resume floods.',
   },
   {
-    image: '/assets/images/hero-img1.jpg',
+    image: '/assets/images/hero-img1.webp',
     alt: 'Two professionals reviewing an offer on a laptop',
     title: 'Placement',
     body: 'We close the offer and stay engaged through onboarding.',
@@ -54,7 +54,10 @@ const STEPS = [
 export const Employers = () => {
   return (
     <main className="employers">
-      <DocumentTitle title="For Employers | The Wheaton Group, LLC" />
+      <Seo
+        title="For Employers | The Wheaton Group, LLC"
+        description="Partner with The Wheaton Group, LLC to fill your hard-to-fill roles. Success-based direct placement backed by a 90-day guarantee, plus flexible contract recruiting."
+      />
 
       {/* Page hero — navy bar */}
       <section className="page-hero">

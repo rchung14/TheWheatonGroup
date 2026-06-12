@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
-import DocumentTitle from 'react-document-title';
+import Seo from '../../components/Seo/Seo';
 import { Link } from 'react-router-dom';
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow';
 import Button from '../../components/Button/Button';
@@ -32,7 +32,10 @@ const DIFFERENTIATORS = [
 export const AboutUs = () => {
   return (
     <main className="about">
-      <DocumentTitle title="About Us | The Wheaton Group, LLC" />
+      <Seo
+        title="About Us | The Wheaton Group, LLC"
+        description="Learn about The Wheaton Group, LLC — a talent acquisition consultancy built on 15+ years of recruiting relationships, personalized service, and a 90-day placement guarantee."
+      />
 
       {/* Page hero — navy bar */}
       <section className="page-hero">
@@ -96,7 +99,7 @@ export const AboutUs = () => {
           <div className="about-founder">
             <img
               className="about-founder__photo"
-              src="/assets/images/headshotexample.jpeg"
+              src="/assets/images/headshotexample.webp"
               alt="William Hwang, Principal of The Wheaton Group, LLC"
             />
             <div className="about-founder__bio">
