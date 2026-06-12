@@ -14,10 +14,10 @@ export const Services = () => {
             </section>
 
             <div className="servicesimgcontainer">
-                <img 
+                <img
                     className="servicesimg"
-                    src="assets/images/servicesimg.jpg"
-                    alt="Our Services"
+                    src="/assets/images/servicesimg.jpg"
+                    alt="Looking up at corporate skyscrapers against a blue sky"
                 />
             </div>
 
@@ -49,10 +49,10 @@ export const Services = () => {
             </section>
 
             <div className="servicesimgcontainer">
-                <img 
+                <img
                     className="servicesimg2"
-                    src="assets/images/servicesimg-bottom.jpg"
-                    alt="Bottom Services"
+                    src="/assets/images/servicesimg-bottom.jpg"
+                    alt="A team taking notes together at a sunlit table"
                 />
             </div>
         </main>

@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage/HomePage';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Contact from './pages/Contact/Contact';
 import Services from './pages/Services/Services';
+import Employers from './pages/Employers/Employers';
 import Careers from './pages/Careers/Careers';
 import JobPage from './pages/JobPage/JobPage';
 import './styles/global.css';
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/employers" element={<Employers />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:jobId" element={<JobPage />} />
       </Routes>

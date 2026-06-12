@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -10,22 +11,26 @@ const Navbar = () => {
         setMenuOpen(!menuOpen);
     };
 
+    // Close the mobile menu after navigating
+    const closeMenu = () => setMenuOpen(false);
+
     return (
         <nav className="navbar">
-            <span className="logo"><a href="/">The Wheaton Group, LLC</a></span>
-            <button 
-                className="menu-toggle" 
-                aria-label="Toggle navigation" 
+            <span className="logo"><Link to="/" onClick={closeMenu}>The Wheaton Group, LLC</Link></span>
+            <button
+                className="menu-toggle"
+                aria-label="Toggle navigation"
                 onClick={toggleMenu}
             >
                 ☰
             </button>
             <ul className={`navicons ${menuOpen ? 'show' : ''}`}>
-                <li><a href="/">Home</a></li>
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/contactus">Contact</a></li>
+                <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+                <li><Link to="/aboutus" onClick={closeMenu}>About Us</Link></li>
+                <li><Link to="/services" onClick={closeMenu}>Services</Link></li>
+                <li><Link to="/employers" onClick={closeMenu}>Employers</Link></li>
+                <li><Link to="/careers" onClick={closeMenu}>Careers</Link></li>
+                <li><Link to="/contactus" onClick={closeMenu}>Contact</Link></li>
             </ul>
         </nav>
     );

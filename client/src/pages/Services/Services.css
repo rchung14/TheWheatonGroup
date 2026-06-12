@@ -59,7 +59,7 @@
 }
 
 /* Direct Placement */
-.directplacement, 
+.directplacement,
 .contractrecruiting {
     width: 50%;
     padding: 5em 5%;
@@ -67,6 +67,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-bottom: 4px solid #011766;
     position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 /* Offset sections */
@@ -94,9 +95,10 @@
 }
 
 /* Hover Effects */
-.directplacement:hover, 
+.directplacement:hover,
 .contractrecruiting:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
 }
 
 /* Responsive Styles for Tablet Screens (max-width: 1000px) */

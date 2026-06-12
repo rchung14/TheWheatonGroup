@@ -2,8 +2,16 @@ footer {
     background-color: #011766;
     color: #ffffff;
     text-align: center;
-    padding: 2em 1em;
+    padding: 2.5em 1em;
     font-size: 0.9em;
+}
+
+footer p {
+    margin: 0.35em 0;
+}
+
+footer a {
+    transition: color 0.3s ease;
 }
 
 footer a {

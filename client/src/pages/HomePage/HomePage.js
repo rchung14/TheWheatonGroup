@@ -18,11 +18,12 @@ export const HomePage = () => {
 
       {/* Intro Section */}
       <section className="intro">
+        <span>The Wheaton Group, LLC</span>
         <h1>Your Talent Acquisition Partner in Identifying the Right Candidate.</h1>
       </section>
       <div className="introimg">
         <img
-          src="assets/images/hero-img1.jpg"
+          src="/assets/images/hero-img1.jpg"
           alt="Two business professionals working out a solution"
         />
       </div>
@@ -42,8 +43,8 @@ export const HomePage = () => {
       <section className="whowearecontainer">
         <div className="whoweareimg">
           <img
-            src="assets/images/whoweare-img1.jpg"
-            alt="A network of people that are always available"
+            src="/assets/images/whoweare-img1.jpg"
+            alt="A one-on-one meeting between a recruiter and a candidate"
           />
         </div>
         <section className="whoweare">
@@ -83,8 +84,8 @@ export const HomePage = () => {
       <section className="homeimg-container">
         <img
           className="homeimg"
-          src="assets/images/homeimg.jpg"
-          alt="Home Banner"
+          src="/assets/images/homeimg.jpg"
+          alt="Illustration of a confident business team standing together"
         />
       </section>
     </main>

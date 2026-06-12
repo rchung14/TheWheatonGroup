@@ -38,6 +38,37 @@
     font-weight: 500;
     color: #f9f9f9;
     text-decoration: none;
+    position: relative;
+    padding-bottom: 0.25em;
+    transition: color 0.3s ease;
+}
+
+/* Underline grows in from the left on hover */
+.navicons li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #cce0ff;
+    transition: width 0.3s ease;
+}
+
+.navicons li a:hover {
+    color: #cce0ff;
+}
+
+.navicons li a:hover::after {
+    width: 100%;
+}
+
+.navbar span a {
+    transition: color 0.3s ease;
+}
+
+.navbar span a:hover {
+    color: #cce0ff;
 }
 
 @media (max-width: 1000px) {
@@ -49,13 +80,14 @@
         display: none;
         flex-direction: column;
         gap: 1em;
-        background-color: #011766; 
+        background-color: #011766;
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
         width: 100%;
-        padding: 1em;
+        padding: 1em 1em 1.5em;
         z-index: 1000;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .navicons.show {

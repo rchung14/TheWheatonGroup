@@ -109,6 +109,8 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
   z-index: 10;
   max-height: 150px;
   overflow-y: auto;
@@ -118,8 +120,9 @@
 }
 
 .suggestions li {
-  padding: 0.5em;
+  padding: 0.6em 0.8em;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .suggestions li:hover {
@@ -140,11 +143,18 @@
   width: 70%;
   padding: 1.5em;
   border: 1px solid #ddd;
+  border-bottom: 4px solid #011766;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
   margin-bottom: 1em;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.job-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
 }
 
 .job-card h2 {

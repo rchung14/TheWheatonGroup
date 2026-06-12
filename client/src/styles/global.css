@@ -13,6 +13,10 @@
 }
 
 /* TYPOGRAPHY */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Lora", Arial, sans-serif;
     line-height: 1.6;
@@ -22,6 +26,37 @@ body {
 
 h1,h2,h3,span,p {
     font-weight: 100;
+}
+
+/* Display headings: tighter leading and a touch of negative tracking */
+h1, h2 {
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+/* Form controls don't inherit fonts by default — keep everything in Lora */
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+/* Unified input focus: navy border with a soft brand ring */
+input:focus, select:focus, textarea:focus {
+    border-color: #011766;
+    box-shadow: 0 0 0 3px rgba(1, 23, 102, 0.1);
+    outline: none;
+}
+
+/* Visible keyboard focus for interactive elements */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid #0044cc;
+    outline-offset: 2px;
+}
+
+/* Brand-colored text selection */
+::selection {
+    background-color: #011766;
+    color: #ffffff;
 }
 
 /* LINK STYLING */

@@ -15,13 +15,12 @@ export const AboutUs = () => {
       <div className="bigimg1-container">
         <img
           className="bigimg1"
-          src="assets/images/aboutus.jpg"
-          alt="About Us"
+          src="/assets/images/aboutus.jpg"
+          alt="The Wheaton Group team collaborating in a modern office"
         />
       </div>
 
       <section className="aboutushero">
-        <div></div>
         <h2>A Real Partner. Personalized Hiring Solutions.</h2>
         <p>
           At The Wheaton Group, LLC, we understand that hiring the right people is critical to a company’s success. 
@@ -44,8 +43,8 @@ export const AboutUs = () => {
         <section className="founder">
           <img
             className="headshotimg"
-            src="assets/images/headshotexample.jpeg"
-            alt="Principal of The Wheaton Group, William Hwang"
+            src="/assets/images/headshotexample.jpeg"
+            alt="William Hwang, Principal of The Wheaton Group, LLC"
           />
           <span>William Hwang, Principal</span>
           <p>
@@ -73,8 +72,8 @@ export const AboutUs = () => {
       <div className="bigimg2-container">
         <img
           className="bigimg2"
-          src="assets/images/founderimg.jpg"
-          alt="Group of Asian Americans in corporate setting"
+          src="/assets/images/founderimg.jpg"
+          alt="Business professionals meeting in a corporate setting"
         />
       </div>
     </main>

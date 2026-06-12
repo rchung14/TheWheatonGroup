@@ -109,13 +109,40 @@ const JobPage = () => {
       });
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-  if (!job) return <div>No job found.</div>;
+  if (loading) return <main className="jobpage-status">Loading job details...</main>;
+  if (error) return <main className="jobpage-status">{error}</main>;
+  if (!job) return <main className="jobpage-status">No job found.</main>;
+
+  // Google Jobs / ATS structured data for this listing
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.jobTitle,
+    description: job.description || "",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: job.company || "The Wheaton Group, LLC",
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: { "@type": "PostalAddress", addressLocality: job.city },
+    },
+    ...(job.workType === "Remote" && { jobLocationType: "TELECOMMUTE" }),
+    ...(job.industry && { industry: job.industry }),
+    identifier: {
+      "@type": "PropertyValue",
+      name: "The Wheaton Group, LLC",
+      value: job.jobID || jobId,
+    },
+  };
 
   return (
     <main className="jobpage-container">
       <DocumentTitle title={`Careers | ${job.jobTitle}`} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
       <section className="jobpage-header">
         <h1>{job.jobTitle}</h1>
         <p><strong>Location:</strong> {job.city}</p>
@@ -127,6 +154,13 @@ const JobPage = () => {
         <h2>Job Description</h2>
         <p>{job.description || "No description provided."}</p>
       </section>
+
+      {job.requirements && (
+        <section className="jobpage-requirements">
+          <h2>Requirements</h2>
+          <p>{job.requirements}</p>
+        </section>
+      )}
 
       <section className="jobpage-apply">
         <h2>Apply for this Job</h2>
@@ -175,16 +209,6 @@ const JobPage = () => {
                       type="button"
                       className="remove-file-btn"
                       onClick={() => removeFile(index)}
-                      style={{
-                        background: "transparent",
-                        border: "none",
-                        outline: "none",
-                        color: "#777",
-                        fontSize: "1.2em",
-                        cursor: "pointer",
-                        marginLeft: "0.5em",
-                        WebkitAppearance: "none"
-                      }}
                     >
                       X
                     </button>

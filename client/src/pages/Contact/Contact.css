@@ -16,13 +16,14 @@
     position: relative;
   }
   
-  .contactmsg h1 { 
+  .contactmsg span {
+    display: block;
     width: 100%;
     font-size: clamp(1em, 1vw, 3em);
     padding-top: 2em;
   }
-  
-  .contactmsg span {
+
+  .contactmsg h1 {
     width: 80%;
     font-size: clamp(2em, 4vw, 4em);
   }
@@ -86,7 +87,7 @@
   }
   
   .submit:hover {
-    background-color: #0133aa;
+    background-color: #0044cc;
   }
   
   /* Responsive Styles for Mobile Devices (max-width: 600px) */
@@ -101,11 +102,11 @@
       padding: 2em 5%;
     }
     
-    .contactmsg h1 {
+    .contactmsg span {
       font-size: 1.5em;
     }
-    
-    .contactmsg span {
+
+    .contactmsg h1 {
       font-size: 2em;
     }
     

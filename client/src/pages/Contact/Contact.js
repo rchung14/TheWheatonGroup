@@ -60,12 +60,12 @@ export const Contact = () => {
     <main className="contactcontainer">
       <DocumentTitle title="Contact | The Wheaton Group, LLC" />
       <section className="contactmsg">
-        <h1>Success starts here</h1>
-        <span>
+        <span>Success starts here</span>
+        <h1>
           Leave us a message.
           <br />
           Let's get started.
-        </span>
+        </h1>
       </section>
 
       <section className="contactform">
