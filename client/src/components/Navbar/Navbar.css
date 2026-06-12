@@ -1,96 +1,159 @@
+/* NavBar — DESIGN.md → Components → Navigation
+   Sticky positioning lives on <header> in global.css. Solid navy, no shadow. */
 .navbar {
+  background-color: var(--navy);
+  height: 72px;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.navbar__logo:hover {
+  color: var(--white);
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  list-style: none;
+}
+
+.navbar__link {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--white);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.navbar__link:hover {
+  color: var(--white);
+  border-bottom-color: rgba(201, 168, 76, 0.5);
+}
+
+/* Active link: white + 2px gold underline */
+.navbar__link.is-active {
+  border-bottom-color: var(--accent-gold);
+}
+
+/* CTA: white pill, navy text */
+.navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  background-color: var(--white);
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background-color var(--transition);
+}
+
+.navbar__cta:hover {
+  background-color: var(--off-white);
+  color: var(--navy-dark);
+}
+
+/* Hamburger (3 lines → X) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__toggle-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--white);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.navbar__toggle.is-open .navbar__toggle-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle.is-open .navbar__toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle.is-open .navbar__toggle-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile: full-height side drawer, navy bg */
+@media (max-width: 1024px) {
+  .navbar {
+    height: 60px;
+  }
+
+  .navbar__logo {
+    font-size: 17px;
+  }
+
+  .navbar__toggle {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5em 5%;
-    background-color: #011766;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar__menu {
     position: fixed;
-    top: 0;
-    z-index: 1000; 
-    width: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    background-color: transparent;
-    border: none;
-    font-size: 1.5em;
-    color: #f9f9f9;
-    cursor: pointer;
-}
-
-.navbar span a {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #f9f9f9;
-    text-decoration: none;
-}
-
-.navicons {
-    list-style: none;
-    display: flex;
-    gap: 1.5em; 
-}
-
-.navicons li a {
-    font-size: 1em;
-    font-weight: 500;
-    color: #f9f9f9;
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 0.25em;
-    transition: color 0.3s ease;
-}
-
-/* Underline grows in from the left on hover */
-.navicons li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
+    top: 60px;
+    right: 0;
     bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #cce0ff;
-    transition: width 0.3s ease;
-}
+    width: min(320px, 85vw);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-4);
+    background-color: var(--navy);
+    padding: var(--sp-4) var(--sp-3);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition), visibility var(--transition);
+    overflow-y: auto;
+  }
 
-.navicons li a:hover {
-    color: #cce0ff;
-}
+  .navbar__menu.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.25);
+  }
 
-.navicons li a:hover::after {
+  .navbar__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
     width: 100%;
-}
+  }
 
-.navbar span a {
-    transition: color 0.3s ease;
-}
-
-.navbar span a:hover {
-    color: #cce0ff;
-}
-
-@media (max-width: 1000px) {
-    .menu-toggle {
-        display: block; 
-    }
-
-    .navicons {
-        display: none;
-        flex-direction: column;
-        gap: 1em;
-        background-color: #011766;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1em 1em 1.5em;
-        z-index: 1000;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .navicons.show {
-        display: flex; 
-    }
+  .navbar__link {
+    font-size: 17px;
+  }
 }

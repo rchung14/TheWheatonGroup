@@ -1,0 +1,69 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 12px 28px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--pill {
+  border-radius: 999px;
+}
+
+/* Primary: navy bg + white text */
+.btn--primary {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background-color: var(--navy-dark);
+  color: var(--white);
+}
+
+/* Ghost: transparent + navy border + navy text */
+.btn--ghost {
+  background-color: transparent;
+  border: 1.5px solid var(--navy);
+  color: var(--navy);
+}
+
+.btn--ghost:hover {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+/* Light: white bg + navy text (for navy backgrounds) */
+.btn--light {
+  background-color: var(--white);
+  color: var(--navy);
+}
+
+.btn--light:hover {
+  background-color: var(--off-white);
+  color: var(--navy-dark);
+}
+
+/* Gold accent: key CTAs only */
+.btn--gold {
+  background-color: var(--accent-gold);
+  color: var(--black);
+}
+
+.btn--gold:hover {
+  background-color: #B8983F;
+  color: var(--black);
+}

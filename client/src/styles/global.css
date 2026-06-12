@@ -1,79 +1,382 @@
+/* =====================================================
+   The Wheaton Group, LLC — Global Styles
+   Design system: .stitch/designs/DESIGN.md
+   Fonts (Playfair Display + Inter) loaded in public/index.html
+   ===================================================== */
+
+:root {
+  /* Color palette */
+  --navy: #0D1B5E;
+  --navy-dark: #09144A;
+  --navy-light: #1A2D7A;
+  --white: #FFFFFF;
+  --off-white: #F5F6FA;
+  --black: #0A0A0A;
+  --gray-mid: #6B7280;
+  --gray-light: #E5E7EB;
+  --accent-gold: #C9A84C;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Spacing — base unit 8px */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-6: 48px;
+  --sp-8: 64px;
+  --sp-12: 96px;
+  --sp-16: 128px;
+
+  /* Layout */
+  --container: 1280px;
+  --container-text: 720px;
+  --radius: 8px;
+  --radius-sm: 4px;
+
+  /* Motion */
+  --transition: 200ms ease;
+}
+
 /* GLOBAL RESET */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* UTILITY CLASS */
-.clearfix:after { 
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* TYPOGRAPHY */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Lora", Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--black);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,h2,h3,span,p {
-    font-weight: 100;
-}
-
-/* Display headings: tighter leading and a touch of negative tracking */
+/* TYPOGRAPHY */
 h1, h2 {
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
+  font-family: var(--font-display);
+  color: var(--black);
+  text-wrap: balance;
 }
 
-/* Form controls don't inherit fonts by default — keep everything in Lora */
+h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--black);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Sticky navy header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LINKS */
+a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+/* Form controls don't inherit fonts by default */
 button, input, select, textarea {
-    font-family: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-/* Unified input focus: navy border with a soft brand ring */
+/* FORMS (DESIGN.md → Components → Forms) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--sp-3);
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+  height: 44px;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+  background-color: var(--white);
+  color: var(--black);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  background-color: var(--white);
+  color: var(--black);
+  resize: vertical;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
 input:focus, select:focus, textarea:focus {
-    border-color: #011766;
-    box-shadow: 0 0 0 3px rgba(1, 23, 102, 0.1);
-    outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(13, 27, 94, 0.12);
+  outline: none;
+}
+
+::placeholder {
+  color: var(--gray-mid);
 }
 
 /* Visible keyboard focus for interactive elements */
 a:focus-visible, button:focus-visible {
-    outline: 2px solid #0044cc;
-    outline-offset: 2px;
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
 }
 
 /* Brand-colored text selection */
 ::selection {
-    background-color: #011766;
-    color: #ffffff;
+  background-color: var(--navy);
+  color: var(--white);
 }
 
-/* LINK STYLING */
-a {
-    color: #223889;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* LAYOUT UTILITIES */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--sp-3);
+  padding-right: var(--sp-3);
 }
 
-a:hover {
-    color: #000000;
+.section {
+  padding-top: var(--sp-12);
+  padding-bottom: var(--sp-12);
 }
 
-/* FONT CLASS */
-.lora {
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
+.section--off-white {
+  background-color: var(--off-white);
+}
+
+/* PAGE HERO — navy bar with page title (About / Services / Careers / Contact) */
+.page-hero {
+  background-color: var(--navy);
+  padding: var(--sp-8) 0;
+}
+
+.page-hero h1 {
+  color: var(--white);
+  margin-top: var(--sp-2);
+}
+
+.page-hero__breadcrumb {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: var(--sp-2);
+}
+
+.page-hero__breadcrumb a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.page-hero__breadcrumb a:hover {
+  color: var(--white);
+}
+
+/* CTA BANNER — full-width navy */
+.cta-banner {
+  background-color: var(--navy);
+  padding: 80px 0;
+}
+
+.cta-banner__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+
+.cta-banner h2 {
+  font-size: 36px;
+  color: var(--white);
+}
+
+.cta-banner p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 640px;
+}
+
+/* CARDS (DESIGN.md → Components → Cards) */
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--navy);
+  color: var(--white);
+  border-radius: var(--radius);
+  margin-bottom: var(--sp-3);
+}
+
+.card h3 {
+  margin-bottom: var(--sp-1);
+}
+
+.card p {
+  color: var(--gray-mid);
+}
+
+/* Arrow link (cards, snapshots) */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--navy);
+}
+
+.arrow-link:hover {
+  text-decoration: underline;
+}
+
+/* BADGES (Job work type) */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+}
+
+.badge--remote {
+  background-color: #EEF2FF;
+  color: var(--navy);
+}
+
+.badge--hybrid {
+  background-color: #F0FDF4;
+  color: #166534;
+}
+
+.badge--onsite {
+  background-color: #FFF7ED;
+  color: #9A3412;
+}
+
+/* IMAGE PLACEHOLDER — visible label, no external image deps */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--off-white);
+  border: 1px dashed var(--gray-light);
+  color: var(--gray-mid);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-height: 280px;
+}
+
+/* MOTION — fade-in on page mount */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fade-up 400ms ease both;
+}
+
+/* Respect reduced motion: disable all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* RESPONSIVE TYPE */
+@media (max-width: 640px) {
+  .container {
+    padding-left: var(--sp-2);
+    padding-right: var(--sp-2);
+  }
+
+  .section {
+    padding-top: var(--sp-8);
+    padding-bottom: var(--sp-8);
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .cta-banner h2 {
+    font-size: 28px;
+  }
+
+  .page-hero {
+    padding: var(--sp-6) 0;
+  }
 }

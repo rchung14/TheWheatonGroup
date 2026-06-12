@@ -1,24 +1,74 @@
-footer {
-    background-color: #011766;
-    color: #ffffff;
-    text-align: center;
-    padding: 2.5em 1em;
-    font-size: 0.9em;
+/* Footer — DESIGN.md → Components → Footer */
+.footer {
+  background-color: var(--navy);
+  color: rgba(255, 255, 255, 0.85);
+  padding: var(--sp-8) 0 40px;
 }
 
-footer p {
-    margin: 0.35em 0;
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--sp-6);
+  align-items: start;
 }
 
-footer a {
-    transition: color 0.3s ease;
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
 }
 
-footer a {
-    color: #ffffff;
-    text-decoration: underline;
+.footer__tagline {
+  margin-top: var(--sp-2);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 360px;
 }
 
-footer a:hover {
-    color: #cce0ff;
+.footer__nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__nav a,
+.footer__contact a {
+  color: var(--white);
+  opacity: 0.7;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.footer__nav a:hover,
+.footer__contact a:hover {
+  opacity: 1;
+  color: var(--white);
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: var(--sp-4) 0 var(--sp-3);
+}
+
+.footer__copyright {
+  font-size: 13px;
+  color: var(--white);
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
 }

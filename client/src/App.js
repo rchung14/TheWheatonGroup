@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
@@ -24,9 +24,12 @@ const App = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/contactus" element={<Contact />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        {/* Legacy URLs — keep old inbound links working */}
+        <Route path="/aboutus" element={<Navigate to="/about" replace />} />
+        <Route path="/contactus" element={<Navigate to="/contact" replace />} />
         <Route path="/employers" element={<Employers />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:jobId" element={<JobPage />} />
