@@ -30,6 +30,7 @@
 .employers-step img {
   display: block;
   width: 100%;
+  height: auto; /* override the height attribute so aspect-ratio wins */
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
