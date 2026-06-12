@@ -1,265 +1,73 @@
-/* Employers Container */
-.employerscontainer {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1em;
-  padding-top: 5em;
-  position: relative;
+/* Value props — 3-up cards */
+.employers-props__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
 }
 
-/* Intro Section */
-.employersintro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  padding: 4em 5%;
-  margin: 0;
-  text-align: left;
-  color: black;
-  position: relative;
+/* How it works — 4 photo steps */
+.employers-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
 }
 
-.employersintro span {
-  display: block;
-  width: 100%;
-  font-size: clamp(1em, 1vw, 3em);
-  padding-top: 2em;
-}
-
-.employersintro h1 {
-  display: block;
-  width: 85%;
-  font-size: clamp(2em, 4vw, 4em);
-  margin: 0;
-}
-
-/* Intro Image (asymmetric, pushed right like the homepage) */
-.employersintroimg {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin: 0;
-}
-
-.employersintroimg img {
-  display: block;
-  width: 70%;
-  max-width: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Value Props Section */
-.valueprops {
-  display: flex;
-  gap: 2em;
-  padding: 3em 5%;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.valueprop {
-  flex: 1 1 33%;
-  padding: 3em 2em;
-  text-align: center;
-  background-color: #ffffff;
-  border-bottom: 4px solid #011766;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.valueprop:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-}
-
-.valueprop h2 {
-  font-size: 1.6em;
-  color: #011766;
-  margin-bottom: 0.75em;
-}
-
-.valueprop p {
-  font-size: 1em;
-  color: #333;
-}
-
-/* How It Works Section */
-.hiringprocess {
-  padding: 5em 5%;
-  text-align: center;
-}
-
-.hiringprocess h2 {
-  font-size: clamp(1.5em, 3vw, 2.5em);
-  margin-bottom: 1.5em;
-}
-
-.hiringsteps {
-  display: flex;
-  gap: 1.5em;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.hiringstep {
-  flex: 1 1 22%;
-  background-color: #ffffff;
-  padding: 0 0 1.5em 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.employers-step {
+  background-color: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.hiringstep:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
+.employers-step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
-.hiringstep img {
+.employers-step img {
   display: block;
   width: 100%;
-  height: 150px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  margin-bottom: 1.2em;
 }
 
-.hiringstep .stepnum {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.2em;
-  height: 2.2em;
-  margin: -2.6em auto 0.8em auto;
+.employers-step__body {
   position: relative;
-  border-radius: 50%;
-  background-color: #011766;
-  color: #fff;
-  font-weight: bold;
-  border: 3px solid #ffffff;
+  padding: var(--sp-3);
 }
 
-.hiringstep h3 {
-  font-size: 1.2em;
-  margin-bottom: 0.4em;
-  color: #011766;
-  padding: 0 1.2em;
+.employers-step__num {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
 }
 
-.hiringstep p {
-  font-size: 0.95em;
-  padding: 0 1.2em;
+.employers-step p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-1);
 }
 
-/* CTA Section (skyline photo under a navy wash — image set inline in JSX,
-   since CRA can't resolve public-folder url() paths in CSS) */
-.employerscta {
-  background-color: #011766;
-  color: #ffffff;
-  text-align: center;
-  padding: 6em 5%;
-  margin: 3em 0;
-}
-
-.employerscta h2 {
-  font-size: clamp(1.8em, 3vw, 3em);
-  margin-bottom: 1em;
-}
-
-.employersctabutton {
-  padding: 1em 2.5em;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #fff;
-  background-color: #0044cc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-/* Base is already the standard hover blue (sits on a navy band), so darken on hover */
-.employersctabutton:hover {
-  background-color: #0133aa;
-}
-
-/* Responsive Styles for Tablet Screens (max-width: 1000px) */
-@media (max-width: 1000px) {
-  .valueprops {
-    flex-direction: column;
-    align-items: stretch;
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .employers-props__grid {
+    grid-template-columns: 1fr;
   }
 
-  .hiringsteps {
-    flex-wrap: wrap;
-  }
-
-  .hiringstep {
-    flex: 1 1 45%;
-  }
-
-  .employersintroimg img {
-    width: 85%;
+  .employers-steps__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Responsive Styles for Small Tablets (max-width: 768px) */
-@media (max-width: 768px) {
-  .employersintro h1 {
-    font-size: 1.8em;
-    width: 100%;
-  }
-
-  .valueprops {
-    padding: 2em 5%;
-  }
-
-  .hiringprocess {
-    padding: 3em 5%;
-  }
-}
-
-/* Mobile Adjustments (max-width: 600px) */
-@media (max-width: 600px) {
-  .employerscontainer {
-    width: 95%;
-    padding: 0.5em;
-    padding-top: 4em;
-  }
-
-  .employersintro {
-    padding: 2em 5%;
-  }
-
-  .employersintro h1 {
-    font-size: 1.5em;
-  }
-
-  .employersintroimg {
-    justify-content: center;
-  }
-
-  .employersintroimg img {
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .valueprop {
-    padding: 2em 1em;
-  }
-
-  .hiringstep {
-    flex: 1 1 100%;
-  }
-
-  .employerscta {
-    padding: 4em 5%;
-  }
-
-  .employersctabutton {
-    font-size: 1em;
-    padding: 0.8em 1.5em;
+@media (max-width: 640px) {
+  .employers-steps__grid {
+    grid-template-columns: 1fr;
   }
 }
