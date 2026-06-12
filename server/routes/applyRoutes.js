@@ -8,8 +8,8 @@ import { validateBody, EMAIL_PATTERN, PHONE_PATTERN } from '../utils/validate.js
 dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'ryanchung14@gmail.com';
-// const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'will@wheaton-group.com';
+// const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'ryanchung14@gmail.com';
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'will@wheaton-group.com';
 
 const router = Router();
 
