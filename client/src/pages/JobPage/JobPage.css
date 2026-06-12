@@ -1,330 +1,80 @@
 /* Loading / error / empty states */
 .jobpage-status {
   text-align: center;
-  padding: 10em 1em;
-  font-size: 1.2em;
-  color: #777;
+  padding: var(--sp-16) var(--sp-2);
+  color: var(--gray-mid);
 }
 
-/* Job Page */
-.jobpage-container {
-  width: 80%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1em;
-  padding-top: 8em;
-  padding-bottom: 8em;
+/* Meta row in page hero */
+.jobpage-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
 }
 
-.jobpage-header {
-  padding: 2em 5%;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
+.jobpage-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.company-name {
-  font-size: 2em;
+/* Article-width body */
+.jobpage-body {
+  max-width: var(--container-text);
 }
 
-.jobpage-header h1 {
-  font-size: clamp(2em, 4vw, 3em);
-  margin: 0;
+.jobpage-body p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-3);
+  white-space: pre-line;
 }
 
-.jobpage-header p {
-  margin: 0.5em 0;
-  font-size: 1em;
-}
-
-.jobpage-description,
 .jobpage-requirements {
-  padding: 2em 5%;
-  text-align: left;
+  margin-top: var(--sp-4);
 }
 
-.jobpage-description h2,
-.jobpage-requirements h2 {
-  font-size: clamp(1.5em, 3vw, 2em);
-  margin-bottom: 0.5em;
+/* Apply form */
+.jobpage-form {
+  margin-top: var(--sp-4);
 }
 
-.jobpage-apply {
-  padding: 2em 5%;
+.jobpage-form .form-group input {
+  background-color: var(--white);
 }
 
-.jobpage-apply h2 {
-  font-size: clamp(1.5em, 3vw, 2em);
-  margin-bottom: 1em;
+.jobpage-form__files {
+  height: auto !important;
+  padding: 10px 14px !important;
 }
 
-.jobpage-apply form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  max-width: 600px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-size: 1em;
-  margin-bottom: 0.5em;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="file"] {
-  padding: 0.8em;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.jobpage-apply button {
-  padding: 0.75em 1.5em;
-  font-size: 1em;
-  color: #fff;
-  background-color: #011766;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.jobpage-apply button:hover {
-  background-color: #0044cc;
-}
-
-.file-list {
+.jobpage-form__file-list {
   list-style: none;
-  margin: 0.5em 0;
-  padding: 0;
+  margin-top: var(--sp-1);
 }
 
-.file-list li {
+.jobpage-form__file-list li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 0.9em;
-  padding: 0.3em 0;
+  gap: var(--sp-1);
+  font-size: 14px;
+  color: var(--gray-mid);
 }
 
-.remove-file-btn {
-  background: transparent;
+.jobpage-form__file-list button {
+  background: none;
   border: none;
-  outline: none;
-  color: #777;
-  font-size: 1.2em;
+  color: var(--navy);
+  font-size: 13px;
   cursor: pointer;
-  margin-left: 1em;
+  padding: 2px 6px;
 }
 
-.remove-file-btn:focus {
-  outline: none;
-}
-
-.remove-file-btn:hover {
-  color: #333;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2em;
-  gap: 1em;
-}
-
-.pagination button {
-  padding: 0.5em 1em;
-  font-size: 1em;
-  background-color: #011766;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.pagination button:hover {
-  background-color: #0044cc;
-}
-
-.pagination span {
-  font-size: 1em;
-  color: #333;
-}
-
-/* Responsive Styles for Tablet Screens (max-width: 1000px) */
-@media (max-width: 1000px) {
-  .job-card {
-    width: 90%;
-  }
-  .jobpage-container {
-    padding-top: 4em;
-    padding-bottom: 4em;
-  }
-  .jobpage-header, 
-  .jobpage-description, 
-  .jobpage-requirements, 
-  .jobpage-apply {
-    padding: 1.5em 3%;
-  }
-}
-
-/* Responsive Styles for Small Tablets (max-width: 768px) */
-@media (max-width: 768px) {
-  .intro {
-    padding: 1em;
-    font-size: 1.2em;
-  }
-  .intro h1 {
-    font-size: 1.8em;
-  }
-  .introimg img {
-    max-width: 100%;
-  }
-  .services-section {
-    padding: 3em 2em;
-  }
-  .servicesbutton {
-    font-size: 1em;
-    padding: 0.8em 1em;
-  }
-  .jobpage-apply form {
-    max-width: 100%;
-  }
-}
-
-/* Responsive Styles for Mobile Devices (max-width: 600px) */
-@media (max-width: 600px) {
-  .container {
-    width: 95%;
-    padding: 0.5em;
-    padding-top: 4em; /* Increased top padding for mobile */
-  }
-  
-  .intro {
-    padding: 1em 5%;
-  }
-  
-  .intro h1 {
-    font-size: 1.5em;
+@media (max-width: 640px) {
+  .jobpage-form .btn {
     width: 100%;
-  }
-  
-  .introimg {
-    justify-content: center;
-  }
-  
-  .introimg img {
-    width: 100%;
-    box-shadow: none;
-  }
-  
-  .herosection {
-    padding: 3em 5%;
-  }
-  
-  .heroblurb {
-    padding: 2em 3%;
-    margin-bottom: 1em;
-  }
-  
-  .whowearecontainer {
-    flex-direction: column;
-  }
-  
-  .whoweare {
-    width: 100%;
-    padding: 1em;
-  }
-  
-  .services-section {
-    padding: 2em 1em;
-    gap: 1em;
-  }
-  
-  .service {
-    flex: 1 1 100%;
-    max-width: 100%;
-    padding: 1em;
-  }
-  
-  .servicesbutton {
-    width: 80%;
-    font-size: 0.9em;
-    padding: 0.5em 1em;
-  }
-  
-  .homeimg {
-    width: 90%;
-  }
-  
-  /* Job Page adjustments for mobile */
-  .jobpage-container {
-    width: 95%;
-    padding-top: 4em;
-    padding-bottom: 2em;
-  }
-  
-  .jobpage-header {
-    padding: 1em 2%;
-  }
-  
-  .jobpage-header h1 {
-    font-size: 1.8em;
-  }
-  
-  .jobpage-header p {
-    font-size: 0.9em;
-  }
-  
-  .jobpage-description,
-  .jobpage-requirements,
-  .jobpage-apply {
-    padding: 1em 2%;
-  }
-  
-  .jobpage-description h2,
-  .jobpage-requirements h2,
-  .jobpage-apply h2 {
-    font-size: 1.5em;
-  }
-  
-  .jobpage-apply form {
-    max-width: 100%;
-  }
-  
-  .form-group label {
-    font-size: 0.9em;
-  }
-  
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="file"] {
-    padding: 0.6em;
-    font-size: 0.9em;
-  }
-  
-  .jobpage-apply button {
-    padding: 0.6em 1em;
-    font-size: 0.9em;
-  }
-  
-  .file-list li {
-    font-size: 0.8em;
-  }
-  
-  .pagination {
-    flex-direction: column;
-    gap: 0.5em;
-  }
-  
-  .pagination button,
-  .pagination span {
-    font-size: 0.9em;
   }
 }

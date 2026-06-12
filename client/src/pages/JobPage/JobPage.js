@@ -1,8 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import DocumentTitle from "react-document-title";
 import "./JobPage.css";
 import { API_BASE_URL } from "../../config";
+import SectionEyebrow from "../../components/SectionEyebrow/SectionEyebrow";
+import Button from "../../components/Button/Button";
+import Icon from "../../components/Icon/Icon";
+
+const BADGE_CLASS = {
+  remote: "badge badge--remote",
+  hybrid: "badge badge--hybrid",
+  "on-site": "badge badge--onsite",
+};
 
 const JobPage = () => {
   const { jobId } = useParams(); // expects route like /careers/:jobId
@@ -21,7 +30,6 @@ const JobPage = () => {
   const fileInputRef = useRef(null);
 
   useEffect(() => {
-    // Fetch job details using the API base URL from the environment variable
     fetch(`${API_BASE_URL}/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
@@ -39,7 +47,6 @@ const JobPage = () => {
     const selectedFiles = Array.from(e.target.files);
     if (selectedFiles.length > 2) {
       alert("You can attach up to 2 files only.");
-      // Clear file input and state if too many files selected
       e.target.value = "";
       setFiles([]);
       return;
@@ -51,7 +58,6 @@ const JobPage = () => {
     setFiles((prevFiles) => {
       const newFiles = prevFiles.filter((_, index) => index !== indexToRemove);
       if (newFiles.length === 0 && fileInputRef.current) {
-        // Clear the file input's value if no files remain
         fileInputRef.current.value = "";
       }
       return newFiles;
@@ -61,18 +67,16 @@ const JobPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ensure at least one file is attached
     if (files.length === 0) {
       alert("Please attach at least one file.");
       return;
     }
 
-    // Safety check: Ensure no more than 2 files are attached
     if (files.length > 2) {
       alert("Please attach no more than 2 files.");
       return;
     }
-    
+
     if (!applicantName || !applicantEmail || !applicantPhone) {
       alert("Please fill in all required fields.");
       return;
@@ -98,7 +102,7 @@ const JobPage = () => {
       .then((data) => {
         if (data.success) {
           alert("Application submitted successfully!");
-          navigate("/"); // Redirect to home page after success
+          navigate("/");
         } else {
           alert("Error submitting application.");
         }
@@ -137,93 +141,128 @@ const JobPage = () => {
   };
 
   return (
-    <main className="jobpage-container">
+    <main className="jobpage">
       <DocumentTitle title={`Careers | ${job.jobTitle}`} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
       />
-      <section className="jobpage-header">
-        <h1>{job.jobTitle}</h1>
-        <p><strong>Location:</strong> {job.city}</p>
-        <p><strong>Industry:</strong> {job.industry}</p>
-        <p><strong>Work Type:</strong> {job.workType}</p>
-      </section>
 
-      <section className="jobpage-description">
-        <h2>Job Description</h2>
-        <p>{job.description || "No description provided."}</p>
-      </section>
-
-      {job.requirements && (
-        <section className="jobpage-requirements">
-          <h2>Requirements</h2>
-          <p>{job.requirements}</p>
-        </section>
-      )}
-
-      <section className="jobpage-apply">
-        <h2>Apply for this Job</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Full Name:</label>
-            <input
-              type="text"
-              value={applicantName}
-              onChange={(e) => setApplicantName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Email:</label>
-            <input
-              type="email"
-              value={applicantEmail}
-              onChange={(e) => setApplicantEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Phone:</label>
-            <input
-              type="text"
-              value={applicantPhone}
-              onChange={(e) => setApplicantPhone(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Attach Resume and/or Cover Letter (up to 2 files):</label>
-            <input 
-              type="file" 
-              multiple 
-              onChange={handleFileChange} 
-              ref={fileInputRef} 
-            />
-            {files.length > 0 && (
-              <ul className="file-list">
-                {files.map((file, index) => (
-                  <li key={index}>
-                    <span>{file.name}</span>
-                    <button
-                      type="button"
-                      className="remove-file-btn"
-                      onClick={() => removeFile(index)}
-                    >
-                      X
-                    </button>
-                  </li>
-                ))}
-              </ul>
+      {/* Page hero — navy bar */}
+      <section className="page-hero">
+        <div className="container">
+          <SectionEyebrow>Open Role</SectionEyebrow>
+          <h1>{job.jobTitle}</h1>
+          <p className="page-hero__breadcrumb">
+            <Link to="/">Home</Link> / <Link to="/careers">Careers</Link> /{" "}
+            {job.jobTitle}
+          </p>
+          <div className="jobpage-meta">
+            <span className="jobpage-meta__item">
+              <Icon name="map-pin" size={16} /> {job.city}
+            </span>
+            {job.industry && (
+              <span className="jobpage-meta__item">
+                <Icon name="briefcase" size={16} /> {job.industry}
+              </span>
+            )}
+            {job.workType && (
+              <span
+                className={
+                  BADGE_CLASS[(job.workType || "").toLowerCase()] || "badge"
+                }
+              >
+                {job.workType}
+              </span>
             )}
           </div>
-          {/* <button type="submit" disabled={files.length === 0 || files.length > 2}>
-            Apply Now
-          </button> */}
-          <button type="submit">
-            Apply Now
-          </button>
-        </form>
+        </div>
+      </section>
+
+      {/* Description */}
+      <section className="section">
+        <div className="container jobpage-body">
+          <SectionEyebrow>The Role</SectionEyebrow>
+          <h2>Job Description</h2>
+          <p>{job.description || "No description provided."}</p>
+
+          {job.requirements && (
+            <>
+              <h3 className="jobpage-requirements">Requirements</h3>
+              <p>{job.requirements}</p>
+            </>
+          )}
+        </div>
+      </section>
+
+      {/* Apply form */}
+      <section className="section section--off-white">
+        <div className="container jobpage-body">
+          <SectionEyebrow>Apply</SectionEyebrow>
+          <h2>Apply for this Job.</h2>
+          <form onSubmit={handleSubmit} className="jobpage-form">
+            <div className="form-group">
+              <label htmlFor="applicantName">Full Name</label>
+              <input
+                id="applicantName"
+                type="text"
+                value={applicantName}
+                onChange={(e) => setApplicantName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="applicantEmail">Email</label>
+              <input
+                id="applicantEmail"
+                type="email"
+                value={applicantEmail}
+                onChange={(e) => setApplicantEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="applicantPhone">Phone</label>
+              <input
+                id="applicantPhone"
+                type="text"
+                value={applicantPhone}
+                onChange={(e) => setApplicantPhone(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="applicantFiles">
+                Attach Resume and/or Cover Letter (up to 2 files)
+              </label>
+              <input
+                id="applicantFiles"
+                className="jobpage-form__files"
+                type="file"
+                multiple
+                onChange={handleFileChange}
+                ref={fileInputRef}
+              />
+              {files.length > 0 && (
+                <ul className="jobpage-form__file-list">
+                  {files.map((file, index) => (
+                    <li key={index}>
+                      <span>{file.name}</span>
+                      <button
+                        type="button"
+                        aria-label={`Remove ${file.name}`}
+                        onClick={() => removeFile(index)}
+                      >
+                        ✕
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <Button type="submit" variant="primary">Apply Now</Button>
+          </form>
+        </div>
       </section>
     </main>
   );
