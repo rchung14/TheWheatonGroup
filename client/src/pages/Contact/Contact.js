@@ -14,6 +14,7 @@ const INITIAL_FORM = {
   phoneNumber: '',
   serviceInterest: 'Not Sure',
   message: '',
+  website: '', // honeypot — stays empty for humans
 };
 
 export const Contact = () => {
@@ -45,6 +46,7 @@ export const Contact = () => {
         `Email: ${formData.email}\n` +
         `Service Interest: ${formData.serviceInterest}\n\n` +
         formData.message,
+      website: formData.website,
     };
 
     try {
@@ -68,7 +70,6 @@ export const Contact = () => {
       }
     } catch (error) {
       setStatusMessage('Error: Unable to send your message. Please check your connection.');
-      console.error('Submission error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -97,6 +98,19 @@ export const Contact = () => {
             <h2>Leave us a message. Let&rsquo;s get started.</h2>
 
             <form onSubmit={handleSubmit} className="contact__form">
+              {/* Honeypot — hidden from humans, catches naive bots */}
+              <div className="hp-field" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+              </div>
               <div className="contact__form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First Name</label>

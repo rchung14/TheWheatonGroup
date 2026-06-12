@@ -24,6 +24,7 @@ const JobPage = () => {
   const [applicantName, setApplicantName] = useState("");
   const [applicantEmail, setApplicantEmail] = useState("");
   const [applicantPhone, setApplicantPhone] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot — stays empty for humans
   const [files, setFiles] = useState([]);
 
   // Create a ref for the file inputs
@@ -36,8 +37,7 @@ const JobPage = () => {
         setJob(data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error("Error fetching job details:", err);
+      .catch(() => {
         setError("Error fetching job details.");
         setLoading(false);
       });
@@ -90,6 +90,7 @@ const JobPage = () => {
     formData.append("applicantName", applicantName);
     formData.append("applicantEmail", applicantEmail);
     formData.append("applicantPhone", applicantPhone);
+    formData.append("website", website);
     files.forEach((file) => {
       formData.append("files", file);
     });
@@ -107,8 +108,7 @@ const JobPage = () => {
           alert("Error submitting application.");
         }
       })
-      .catch((err) => {
-        console.error("Error applying for job:", err);
+      .catch(() => {
         alert("Error applying for job.");
       });
   };
@@ -201,6 +201,19 @@ const JobPage = () => {
           <SectionEyebrow>Apply</SectionEyebrow>
           <h2>Apply for this Job.</h2>
           <form onSubmit={handleSubmit} className="jobpage-form">
+            {/* Honeypot — hidden from humans, catches naive bots */}
+            <div className="hp-field" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="applicantName">Full Name</label>
               <input

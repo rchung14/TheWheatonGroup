@@ -1,0 +1,10 @@
+.error-boundary {
+  padding: var(--sp-16) 0;
+  text-align: left;
+}
+
+.error-boundary p {
+  color: var(--gray-mid);
+  margin: var(--sp-3) 0;
+  max-width: 560px;
+}

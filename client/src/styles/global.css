@@ -325,6 +325,16 @@ a:focus-visible, button:focus-visible {
   min-height: 280px;
 }
 
+/* HONEYPOT — visually hidden anti-bot field; humans never see or fill it */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
 /* MOTION — fade-in on page mount */
 @keyframes fade-up {
   from {

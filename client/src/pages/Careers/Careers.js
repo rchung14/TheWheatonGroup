@@ -54,7 +54,9 @@ export const Careers = () => {
 
         setJobs(cleanedJobs);
       })
-      .catch((error) => console.error("Error fetching jobs:", error));
+      .catch(() => {
+        // Listing fetch failed — the empty state below covers it.
+      });
   }, []);
 
   // Suggestions based on current input values

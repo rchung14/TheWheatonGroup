@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { Analytics } from "@vercel/analytics/react";
 
 // pages
@@ -22,6 +23,7 @@ const App = () => {
         <Navbar />
       </header>
       <ScrollToTop />
+      <ErrorBoundary>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
@@ -34,6 +36,7 @@ const App = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:jobId" element={<JobPage />} />
       </Routes>
+      </ErrorBoundary>
       <footer>
         <Footer />
       </footer>
