@@ -1,342 +1,89 @@
-/* About Us Container */
-.aboutuscontainer {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1em;
-    padding-top: 5em;
-    padding-bottom: 10em; 
-    position: relative;
+/* Mission — serif pull quote + article-width copy */
+.about-mission {
+  max-width: var(--container-text);
+}
+
+.about-mission__quote {
+  font-size: 36px;
+}
+
+.about-mission p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-3);
+}
+
+/* What sets us apart — 4-up cards */
+.about-diff__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+/* Leadership — founder card */
+.about-founder {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--sp-6);
+  align-items: start;
+  margin-top: var(--sp-6);
+}
+
+.about-founder__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.about-founder__bio p {
+  color: var(--gray-mid);
+  margin-top: var(--sp-2);
+  max-width: 560px;
+}
+
+.about-founder__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+.about-founder__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.about-founder__links a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .about-diff__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* About Wheaton Section */
-  .aboutwheaton {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 4em 5%;
-    margin: 0;
-    text-align: left;
-    color: black;
-    position: relative;
+}
+
+@media (max-width: 640px) {
+  .about-mission__quote {
+    font-size: 28px;
   }
-  
-  .aboutwheaton span { 
-    width: 100%;
-    font-size: clamp(1em, 1vw, 3em);
-    padding-top: 2em;
+
+  .about-diff__grid {
+    grid-template-columns: 1fr;
   }
-  
-  .aboutwheaton h1 {
-    width: 80%;
-    font-size: clamp(2em, 4vw, 4em);
+
+  .about-founder {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
   }
-  
-  /* Big Image 1 Container */
-  .bigimg1-container {
-    display: block;
-    width: 100%;
-    padding-bottom: 5em;
-    position: relative;
+
+  .about-founder__photo {
+    max-width: 280px;
   }
-  
-  .bigimg1 {
-    display: block;
-    width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* About Us Hero Section */
-  .aboutushero {
-    width: 80%; 
-    max-width: 1400px; 
-    margin: auto;
-    text-align: left;
-    padding: 5em 5%;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    gap: 4em;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .aboutushero h2 { 
-    width: 150%;
-    color: #011766;
-    font-size: clamp(2em, 3vw, 3em);
-  }
-  
-  .aboutushero p { 
-    color: #011766;
-    font-size: clamp(1em, 1vw, 3em);
-  }
-  
-  /* Founder Container */
-  .foundercontainer { 
-    width: 60%;
-    max-width: 1400px;
-    margin: auto;
-    display: block;
-    padding: 5em 5%;
-    padding-top: 5em;
-    text-align: center;
-    justify-content: center; 
-  }
-  
-  .foundercontainer h3 {
-    font-size: clamp(2em, 3vw, 5em);
-    padding: 1em 2%;
-  }
-  
-  .foundercontainer p { 
-    font-size: clamp(1em, 1vw, 2em);
-    padding-bottom: 3em;
-  }
-  
-  /* Founder Section */
-  .founder {
-    width: 100%;
-    text-align: center;
-    padding: 5em 5%; 
-    display: block;
-    background-color: #ffffff;
-    border-bottom: 4px solid #011766;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .headshotimg {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .foundercontainer span {
-    display: block;
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #333;
-    text-align: center;
-    margin-top: 1em;
-  }
-  
-  /* Big Image 2 Container */
-  .bigimg2-container {
-    display: block;
-    width: 100%;
-    padding-top: 3em;
-    position: relative;
-  }
-  
-  .bigimg2 {
-    display: block;
-    width: 100%;
-    height: auto;
-    position: relative;
-    right: -2.1%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Founder Social Links */
-  .founder a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em; 
-    padding: 0.8em 1.5em; 
-    font-size: clamp(0.8em, 1vw, 1.2em); 
-    font-weight: bold;
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
-    margin: 0.5em; 
-  }
-  
-  .founder a.linkedin {
-    background-color: #0077b5; 
-  }
-  
-  .founder a.email {
-    background-color: #d44638;
-  }
-  
-  .founder a.phone {
-    background-color: #28a745;
-  }
-  
-  .founder a:hover {
-    opacity: 0.9;
-  }
-  
-  .founder a i {
-    font-size: 1.2em;
-  }
-  
-  /* Responsive Styles for Tablet Screens (max-width: 1000px) */
-  @media (max-width: 1000px) {
-    .aboutushero {
-      flex-direction: column;
-      text-align: center;
-      gap: 2em;
-      padding: 3em 2%;
-    }
-  
-    .aboutushero h2 {
-      width: 100%;
-      font-size: 1.8em;
-    }
-  
-    .aboutushero p {
-      font-size: 1em;
-    }
-  
-    .foundercontainer {
-      width: 90%;
-      padding: 3em 2%;
-    }
-  
-    .foundercontainer h3 {
-      font-size: 2em;
-    }
-  
-    .foundercontainer p {
-      font-size: 1em;
-    }
-  
-    .headshotimg {
-      max-width: 250px;
-    }
-  
-    .bigimg2 {
-      max-width: 100%;
-      right: 0;
-    }
-  
-    .founder a {
-      font-size: clamp(0.7em, 1vw, 1em);
-      padding: 0.6em 1em;
-    }
-  }
-  
-  /* Responsive Styles for Small Tablets (max-width: 768px) */
-  @media (max-width: 768px) {
-    .aboutushero {
-      padding: 2em 1em;
-      gap: 1em;
-    }
-  
-    .aboutushero h2 {
-      font-size: 1.5em;
-    }
-  
-    .aboutushero p {
-      font-size: 0.9em;
-    }
-  
-    .foundercontainer {
-      width: 100%;
-      padding: 2em 1em;
-    }
-  
-    .foundercontainer h3 {
-      font-size: 1.5em;
-    }
-  
-    .foundercontainer p {
-      font-size: 0.9em;
-    }
-  
-    .headshotimg {
-      max-width: 200px;
-    }
-  
-    .founder a {
-      width: 100%;
-      padding: 0.8em 0; 
-      text-align: center;
-    }
-  
-    .founder a i {
-      margin-right: 0.5em; 
-    }
-  }
-  
-  /* Responsive Styles for Mobile Devices (max-width: 600px) */
-  @media (max-width: 600px) {
-    /* Increase top padding on primary containers for the fixed navbar */
-    .aboutuscontainer {
-      padding-top: 4em;
-      padding-bottom: 5em;
-    }
-    
-    .aboutwheaton {
-      padding: 2em 5%;
-    }
-    
-    .aboutwheaton h1 {
-      width: 100%;
-      font-size: 1.5em;
-    }
-    
-    .bigimg1-container {
-      padding-bottom: 3em;
-    }
-    
-    .aboutushero {
-      width: 95%;
-      padding: 3em 5%;
-      gap: 1.5em;
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .aboutushero h2 {
-      width: 100%;
-      font-size: 1.5em;
-    }
-    
-    .aboutushero p {
-      font-size: 1em;
-    }
-    
-    .foundercontainer {
-      width: 95%;
-      padding: 3em 5%;
-      padding-top: 4em; /* Increased top padding for mobile */
-    }
-    
-    .foundercontainer h3 {
-      font-size: 1.8em;
-    }
-    
-    .foundercontainer p {
-      font-size: 0.9em;
-    }
-    
-    .headshotimg {
-      max-width: 150px;
-    }
-    
-    .bigimg2-container {
-      padding-top: 2em;
-    }
-    
-    .bigimg2 {
-      right: 0;
-    }
-    
-    .founder {
-      padding: 4em 5%;
-    }
-    
-    .founder a {
-      font-size: 0.9em;
-      padding: 0.8em 1em;
-    }
-  }
+}
