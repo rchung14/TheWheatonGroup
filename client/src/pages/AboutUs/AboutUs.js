@@ -33,8 +33,8 @@ export const AboutUs = () => {
   return (
     <main className="about">
       <Seo
-        title="About Us | The Wheaton Group, LLC"
-        description="Learn about The Wheaton Group, LLC — a talent acquisition consultancy built on 15+ years of recruiting relationships, personalized service, and a 90-day placement guarantee."
+        title="About Us | The Wheaton Group — Talent Acquisition Partner"
+        description="The Wheaton Group, LLC is a talent acquisition partner built on 15+ years of recruiting relationships, personalized service, and a 90-day guarantee."
       />
 
       {/* Page hero — navy bar */}

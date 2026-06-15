@@ -56,8 +56,8 @@ export const Services = () => {
   return (
     <main className="services">
       <Seo
-        title="Services | The Wheaton Group, LLC"
-        description="Direct placement with a 90-day guarantee and hourly contract recruiting. Compare our services and find the hiring model that fits your needs."
+        title="Direct Placement & Contract Recruiting Services | The Wheaton Group"
+        description="Direct placement backed by a 90-day guarantee plus flexible hourly contract recruiting. Compare both models and find the hiring approach that fits."
       />
 
       {/* Page hero — navy bar */}

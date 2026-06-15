@@ -78,8 +78,8 @@ export const Contact = () => {
   return (
     <main className="contact">
       <Seo
-        title="Contact | The Wheaton Group, LLC"
-        description="Get in touch with The Wheaton Group, LLC to discuss direct placement or contract recruiting. Call, email, or send us a message — success starts here."
+        title="Contact | The Wheaton Group — Hire the Right Candidate"
+        description="Partner with The Wheaton Group, LLC to hire the right candidate. Call, email, or message us about direct placement or contract recruiting today."
       />
 
       {/* Page hero — navy bar */}

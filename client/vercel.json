@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/aboutus", "destination": "/about", "permanent": true },
+    { "source": "/contactus", "destination": "/contact", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

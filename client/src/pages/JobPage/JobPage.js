@@ -130,27 +130,48 @@ const JobPage = () => {
   if (error) return <main className="jobpage-status">{error}</main>;
 
   // Google Jobs / ATS structured data for this listing
+  // Derived from the same `job` object that renders this page so the structured
+  // data never drifts from the visible listing. Fields the backend doesn't yet
+  // supply fall back to documented placeholders — see the SEO summary; replace
+  // datePosted / validThrough / employmentType / salary with real values.
+  const isRemote = (job.workType || "").toLowerCase() === "remote";
   const jobPostingSchema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: job.jobTitle,
-    description: job.description || "",
+    description: job.description || `Apply for ${job.jobTitle} through The Wheaton Group, LLC.`,
+    // datePosted is REQUIRED by Google — emitted only when the backend provides
+    // it; without it the listing won't qualify for the Jobs rich result.
+    ...(job.datePosted && { datePosted: job.datePosted }),
+    ...(job.validThrough && { validThrough: job.validThrough }),
+    employmentType: job.employmentType || "FULL_TIME", // placeholder default
     hiringOrganization: {
       "@type": "Organization",
       name: job.company || "The Wheaton Group, LLC",
+      sameAs: "https://www.wheaton-group.com",
+      logo: "https://www.wheaton-group.com/assets/images/og-image.jpg",
     },
-    jobLocation: {
-      "@type": "Place",
-      address: { "@type": "PostalAddress", addressLocality: job.city },
-    },
-    ...(job.datePosted && { datePosted: job.datePosted }),
-    ...(job.workType === "Remote" && { jobLocationType: "TELECOMMUTE" }),
-    ...(job.industry && { industry: job.industry }),
     identifier: {
       "@type": "PropertyValue",
       name: "The Wheaton Group, LLC",
       value: job.jobID || jobId,
     },
+    ...(job.city && {
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: job.city,
+          addressCountry: "US",
+        },
+      },
+    }),
+    ...(isRemote && {
+      jobLocationType: "TELECOMMUTE",
+      applicantLocationRequirements: { "@type": "Country", name: "USA" },
+    }),
+    ...(job.baseSalary && { baseSalary: job.baseSalary }),
+    ...(job.industry && { industry: job.industry }),
   };
 
   // Meta descriptions get truncated in search results past ~160 characters.

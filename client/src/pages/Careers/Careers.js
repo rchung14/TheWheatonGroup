@@ -131,8 +131,8 @@ export const Careers = () => {
   return (
     <main className="careers">
       <Seo
-        title="Careers | The Wheaton Group, LLC"
-        description="Browse open positions across industries and locations. Search jobs by title, city, and work type, then apply directly through The Wheaton Group, LLC."
+        title="Open Jobs & Careers | The Wheaton Group"
+        description="Browse open remote, hybrid, and on-site roles. Search jobs by title, city, and work type, then apply directly through The Wheaton Group, LLC."
       />
 
       {/* Page hero — navy bar */}

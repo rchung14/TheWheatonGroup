@@ -48,7 +48,7 @@ export const HomePage = () => {
     <main className="home">
       <Seo
         title="The Wheaton Group, LLC | Talent Acquisition & Recruiting"
-        description="The Wheaton Group, LLC is a talent acquisition consultancy offering direct placement with a 90-day guarantee and flexible contract recruiting. Browse open jobs or partner with us to hire the right candidate."
+        description="Talent acquisition & recruiting from The Wheaton Group, LLC — direct placement with a 90-day guarantee plus flexible, hourly contract recruiting."
       />
 
       {/* Hero — split layout, off-white bg */}
