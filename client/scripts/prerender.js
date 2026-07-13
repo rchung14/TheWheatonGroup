@@ -56,7 +56,18 @@ const ROUTES = [
   { route: '/404', out: '404.html' },
 ];
 
-const TEMPLATE = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
+// Inline the main CSS bundle (~5KB) into <head>. The stylesheet <link> is
+// render-blocking, so inlining removes a full round trip from the critical
+// path on every route (directly improves FCP/LCP on throttled mobile).
+const TEMPLATE = fs
+  .readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8')
+  .replace(
+    /<link href="(\/static\/css\/[^"]+\.css)" rel="stylesheet">/,
+    (match, cssHref) => {
+      const css = fs.readFileSync(path.join(BUILD_DIR, cssHref), 'utf8');
+      return `<style>${css}</style>`;
+    }
+  );
 
 function renderRoute(route) {
   const helmetContext = {};

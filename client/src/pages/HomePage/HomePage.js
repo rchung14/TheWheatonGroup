@@ -53,14 +53,18 @@ export const HomePage = () => {
         title="The Wheaton Group, LLC | Talent Acquisition & Recruiting"
         description="Talent acquisition & recruiting from The Wheaton Group, LLC: direct placement with a 90-day guarantee plus flexible contract recruiting for the federal sector and beyond."
       />
-      {/* Preload the LCP hero image (AVIF preferred, matches the <picture> below) */}
+      {/* Preload the hero image (AVIF, matches the <picture> below), but only
+          on viewports where it's above the fold. On mobile the hero image sits
+          below the copy, and preloading it would steal bandwidth from the
+          fonts, which gate the text LCP. */}
       <Helmet>
         <link
           rel="preload"
           as="image"
           type="image/avif"
+          media="(min-width: 1025px)"
           imageSrcSet="/assets/images/hero-img1-480.avif 480w, /assets/images/hero-img1-840.avif 840w, /assets/images/hero-img1-1280.avif 1280w"
-          imageSizes="(max-width: 1024px) 100vw, 40vw"
+          imageSizes="40vw"
           fetchpriority="high"
         />
       </Helmet>
