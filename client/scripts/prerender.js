@@ -9,12 +9,12 @@
  * This script renders each STATIC route with ReactDOMServer + StaticRouter and
  * injects the resulting markup + react-helmet-async head tags into the built
  * HTML shell, so the initial response carries the correct <title>,
- * <meta name="description">, canonical, OG tags and <h1> — before any JS runs.
+ * <meta name="description">, canonical, OG tags and <h1> - before any JS runs.
  * It's pure Node (no headless Chrome), so it runs identically locally and in
  * the Vercel build container.
  *
  * Dynamic, backend-driven job pages (/careers/:jobId) are intentionally NOT
- * prerendered — they change constantly, keep their client-rendered JSON-LD, and
+ * prerendered - they change constantly, keep their client-rendered JSON-LD, and
  * continue to work via the SPA fallback to index.html.
  */
 require('@babel/register')({
@@ -51,6 +51,8 @@ const ROUTES = [
   { route: '/employers', out: 'employers/index.html' },
   { route: '/careers', out: 'careers/index.html' },
   { route: '/contact', out: 'contact/index.html' },
+  { route: '/privacy', out: 'privacy/index.html' },
+  { route: '/accessibility', out: 'accessibility/index.html' },
   { route: '/404', out: '404.html' },
 ];
 
@@ -75,11 +77,13 @@ function renderRoute(route) {
 function buildHtml(route) {
   const { body, helmet } = renderRoute(route);
 
-  // Per-route head tags from react-helmet-async (title/description/canonical/OG).
+  // Per-route head tags from react-helmet-async (title/description/canonical/
+  // OG/JSON-LD structured data).
   const headTags = [
     helmet.title.toString(),
     helmet.meta.toString(),
     helmet.link.toString(),
+    helmet.script.toString(),
   ]
     .filter(Boolean)
     .join('\n    ');

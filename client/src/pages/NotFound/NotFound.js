@@ -13,7 +13,7 @@ const NotFound = () => {
         noIndex
       />
 
-      {/* Page hero — navy bar */}
+      {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
           <SectionEyebrow>404</SectionEyebrow>

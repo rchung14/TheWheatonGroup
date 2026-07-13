@@ -2,7 +2,7 @@ import React from 'react';
 import './ErrorBoundary.css';
 
 // Catches render crashes so users see a generic fallback instead of a blank
-// page — and no component names, file paths, or stack traces leak to the UI.
+// page - and no component names, file paths, or stack traces leak to the UI.
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);

@@ -1,4 +1,4 @@
-/* Footer — DESIGN.md → Components → Footer */
+/* Footer - DESIGN.md → Components → Footer */
 .footer {
   background-color: var(--navy);
   color: rgba(255, 255, 255, 0.85);
@@ -60,10 +60,35 @@
   margin: var(--sp-4) 0 var(--sp-3);
 }
 
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
 .footer__copyright {
   font-size: 13px;
   color: var(--white);
   opacity: 0.5;
+}
+
+.footer__legal-links {
+  list-style: none;
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.footer__legal-links a {
+  font-size: 13px;
+  color: var(--white);
+  opacity: 0.5;
+  transition: opacity var(--transition);
+}
+
+.footer__legal-links a:hover {
+  opacity: 1;
 }
 
 @media (max-width: 640px) {

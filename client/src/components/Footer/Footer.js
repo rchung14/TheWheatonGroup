@@ -32,9 +32,15 @@ const Footer = () => (
 
       <div className="footer__divider"></div>
 
-      <p className="footer__copyright">
-        &copy; {new Date().getFullYear()} The Wheaton Group, LLC. All rights reserved.
-      </p>
+      <div className="footer__legal">
+        <p className="footer__copyright">
+          &copy; {new Date().getFullYear()} The Wheaton Group, LLC. All rights reserved.
+        </p>
+        <ul className="footer__legal-links">
+          <li><Link to="/privacy">Privacy Policy</Link></li>
+          <li><Link to="/accessibility">Accessibility Statement</Link></li>
+        </ul>
+      </div>
     </div>
   </div>
 );

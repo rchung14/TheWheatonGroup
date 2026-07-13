@@ -27,6 +27,8 @@ const VALUE_PROPS = [
 const STEPS = [
   {
     image: '/assets/images/servicesimg-bottom.webp',
+    srcSet:
+      '/assets/images/servicesimg-bottom-480.webp 480w, /assets/images/servicesimg-bottom-1024.webp 1024w',
     width: 1024,
     height: 683,
     alt: 'Taking notes together at a sunlit table',
@@ -35,6 +37,8 @@ const STEPS = [
   },
   {
     image: '/assets/images/careersimg.webp',
+    srcSet:
+      '/assets/images/careersimg-480.webp 480w, /assets/images/careersimg-1024.webp 1024w',
     width: 1024,
     height: 577,
     alt: 'A team working around an office table',
@@ -43,14 +47,18 @@ const STEPS = [
   },
   {
     image: '/assets/images/whoweare-img1.webp',
+    srcSet:
+      '/assets/images/whoweare-img1-480.webp 480w, /assets/images/whoweare-img1-760.webp 760w, /assets/images/whoweare-img1-1280.webp 1280w',
     width: 1280,
     height: 854,
     alt: 'A one-on-one interview by a city window',
     title: 'Interviews',
-    body: 'You meet a curated shortlist — no resume floods.',
+    body: 'You meet a curated shortlist, not a flood of resumes.',
   },
   {
     image: '/assets/images/hero-img1.webp',
+    srcSet:
+      '/assets/images/hero-img1-480.webp 480w, /assets/images/hero-img1-840.webp 840w, /assets/images/hero-img1-1280.webp 1280w',
     width: 1280,
     height: 854,
     alt: 'Two professionals reviewing an offer on a laptop',
@@ -67,18 +75,23 @@ export const Employers = () => {
         description="Partner with The Wheaton Group, LLC to fill your hard-to-fill roles. Success-based direct placement backed by a 90-day guarantee, plus flexible contract recruiting."
       />
 
-      {/* Page hero — navy bar */}
+      {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
-          <SectionEyebrow>For Employers</SectionEyebrow>
+          <SectionEyebrow />
           <h1>Hire the Right Candidate, Guaranteed.</h1>
+          <p className="page-hero__intro">
+            From federal sector contractors to professional services firms, we
+            fill the hard-to-fill roles, with success-based pricing and a
+            90-day guarantee.
+          </p>
           <p className="page-hero__breadcrumb">
             <Link to="/">Home</Link> / Employers
           </p>
         </div>
       </section>
 
-      {/* Value props — 3-up cards */}
+      {/* Value props - 3-up cards */}
       <section className="section">
         <div className="container">
           <SectionEyebrow>How We Help</SectionEyebrow>
@@ -97,15 +110,24 @@ export const Employers = () => {
         </div>
       </section>
 
-      {/* How it works — 4 steps with photos */}
+      {/* How it works - 4 steps with photos */}
       <section className="section section--off-white">
         <div className="container">
           <SectionEyebrow>How It Works</SectionEyebrow>
           <h2>Four Steps to Your Next Hire.</h2>
           <div className="employers-steps__grid">
-            {STEPS.map(({ image, width, height, alt, title, body }, index) => (
+            {STEPS.map(({ image, srcSet, width, height, alt, title, body }, index) => (
               <div key={title} className="employers-step">
-                <img src={image} alt={alt} width={width} height={height} loading="lazy" />
+                <img
+                  src={image}
+                  srcSet={srcSet}
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="employers-step__body">
                   <span className="employers-step__num">{index + 1}</span>
                   <h3>{title}</h3>
@@ -123,8 +145,8 @@ export const Employers = () => {
           <SectionEyebrow>Get Started</SectionEyebrow>
           <h2>Ready to build your team?</h2>
           <p>
-            Tell us about the role — we&rsquo;ll bring you a curated shortlist,
-            risk-free.
+            Tell us about the role, and we&rsquo;ll bring you a curated
+            shortlist, risk-free.
           </p>
           <Button to="/contact" variant="light">Contact Us</Button>
         </div>

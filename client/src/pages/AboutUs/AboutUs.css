@@ -1,4 +1,4 @@
-/* Mission — serif pull quote + article-width copy */
+/* Mission - serif pull quote + article-width copy */
 .about-mission {
   max-width: var(--container-text);
 }
@@ -12,7 +12,7 @@
   margin-top: var(--sp-3);
 }
 
-/* What sets us apart — 4-up cards */
+/* What sets us apart - 4-up cards */
 .about-diff__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -20,7 +20,7 @@
   margin-top: var(--sp-6);
 }
 
-/* Leadership — founder card */
+/* Leadership - founder card */
 .about-founder {
   display: grid;
   grid-template-columns: 280px 1fr;

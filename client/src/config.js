@@ -8,6 +8,6 @@ export const API_BASE_URL =
 // database connection warm.
 export const pingBackend = () => {
   fetch(`${API_BASE_URL}/`).catch(() => {
-    // Keep-alive only — ignore failures so they never affect the UI.
+    // Keep-alive only - ignore failures so they never affect the UI.
   });
 };

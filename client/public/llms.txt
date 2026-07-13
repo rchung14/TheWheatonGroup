@@ -1,0 +1,17 @@
+# The Wheaton Group, LLC
+
+> Talent acquisition and recruiting firm specializing in direct placement (90-day guarantee, success-based pricing) and hourly contract recruiting, with 15+ years of experience serving the federal sector and professional services firms.
+
+## Pages
+
+- [Home](https://www.wheaton-group.com/): Overview of services and value proposition
+- [About](https://www.wheaton-group.com/about): Mission and leadership, led by William Hwang, Principal
+- [Services](https://www.wheaton-group.com/services): Direct placement and contract recruiting, compared in depth
+- [Employers](https://www.wheaton-group.com/employers): How the four-step hiring process works
+- [Careers](https://www.wheaton-group.com/careers): Open roles placed through The Wheaton Group
+- [Contact](https://www.wheaton-group.com/contact): Contact form, email, and phone
+
+## Contact
+
+- Email: will@wheaton-group.com
+- Phone: +1 (609) 707-7128

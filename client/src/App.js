@@ -14,6 +14,8 @@ import Services from './pages/Services/Services';
 import Employers from './pages/Employers/Employers';
 import Careers from './pages/Careers/Careers';
 import JobPage from './pages/JobPage/JobPage';
+import Privacy from './pages/Legal/Privacy';
+import Accessibility from './pages/Legal/Accessibility';
 import NotFound from './pages/NotFound/NotFound';
 import './styles/global.css';
 
@@ -32,12 +34,14 @@ export const AppRoutes = () => (
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
-        {/* Legacy URLs — keep old inbound links working (also 301'd in vercel.json) */}
+        {/* Legacy URLs - keep old inbound links working (also 301'd in vercel.json) */}
         <Route path="/aboutus" element={<Navigate to="/about" replace />} />
         <Route path="/contactus" element={<Navigate to="/contact" replace />} />
         <Route path="/employers" element={<Employers />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:jobId" element={<JobPage />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/accessibility" element={<Accessibility />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ErrorBoundary>

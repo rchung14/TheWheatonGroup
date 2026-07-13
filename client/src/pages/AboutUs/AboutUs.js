@@ -15,7 +15,7 @@ const DIFFERENTIATORS = [
   {
     icon: 'target',
     title: 'Deep Network',
-    body: 'Fifteen-plus years of recruiting relationships mean every search starts ahead of schedule.',
+    body: '15+ years of recruiting relationships mean every search starts ahead of schedule.',
   },
   {
     icon: 'zap',
@@ -25,7 +25,7 @@ const DIFFERENTIATORS = [
   {
     icon: 'shield-check',
     title: '90-Day Guarantee',
-    body: 'Every direct placement is backed by a 90-day guarantee — you only pay when we succeed.',
+    body: 'Every direct placement is backed by a 90-day guarantee, and you only pay when we succeed.',
   },
 ];
 
@@ -33,11 +33,30 @@ export const AboutUs = () => {
   return (
     <main className="about">
       <Seo
-        title="About Us | The Wheaton Group — Talent Acquisition Partner"
+        title="About Us | The Wheaton Group, LLC"
         description="The Wheaton Group, LLC is a talent acquisition partner built on 15+ years of recruiting relationships, personalized service, and a 90-day guarantee."
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'William Hwang',
+          jobTitle: 'Principal',
+          image: 'https://www.wheaton-group.com/assets/images/william-hwang.webp',
+          worksFor: {
+            '@type': 'Organization',
+            name: 'The Wheaton Group, LLC',
+            url: 'https://www.wheaton-group.com/',
+          },
+          alumniOf: {
+            '@type': 'CollegeOrUniversity',
+            name: 'Drexel University',
+          },
+          email: 'will@wheaton-group.com',
+          telephone: '+16097077128',
+          sameAs: ['https://www.linkedin.com/in/willhwang/'],
+        }}
       />
 
-      {/* Page hero — navy bar */}
+      {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
           <SectionEyebrow>About The Wheaton Group, LLC</SectionEyebrow>
@@ -99,8 +118,8 @@ export const AboutUs = () => {
           <div className="about-founder">
             <img
               className="about-founder__photo"
-              src="/assets/images/headshotexample.webp"
-              alt="William Hwang, Principal of The Wheaton Group, LLC"
+              src="/assets/images/william-hwang.webp"
+              alt="William Hwang, Principal of The Wheaton Group, LLC, talent acquisition recruiter"
               width="350"
               height="397"
               loading="lazy"
@@ -143,7 +162,7 @@ export const AboutUs = () => {
           <h2>Start working with us.</h2>
           <p>
             Whether you&rsquo;re hiring or job hunting, the first conversation
-            is free — and worth it.
+            is free, and worth it.
           </p>
           <Button to="/contact" variant="light">Contact Us</Button>
         </div>

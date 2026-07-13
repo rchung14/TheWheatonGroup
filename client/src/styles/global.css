@@ -1,5 +1,5 @@
 /* =====================================================
-   The Wheaton Group, LLC — Global Styles
+   The Wheaton Group, LLC - Global Styles
    Design system: .stitch/designs/DESIGN.md
    Fonts (Playfair Display + Inter) loaded in public/index.html
    ===================================================== */
@@ -12,7 +12,8 @@
   --white: #FFFFFF;
   --off-white: #F5F6FA;
   --black: #0A0A0A;
-  --gray-mid: #6B7280;
+  /* WCAG AA: ≥4.5:1 on both white and --off-white (was #6B7280, 4.47:1 on off-white) */
+  --gray-mid: #5C6672;
   --gray-light: #E5E7EB;
   --accent-gold: #C9A84C;
 
@@ -20,7 +21,7 @@
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 
-  /* Spacing — base unit 8px */
+  /* Spacing - base unit 8px */
   --sp-1: 8px;
   --sp-2: 16px;
   --sp-3: 24px;
@@ -188,7 +189,7 @@ a:focus-visible, button:focus-visible {
   background-color: var(--off-white);
 }
 
-/* PAGE HERO — navy bar with page title (About / Services / Careers / Contact) */
+/* PAGE HERO - navy bar with page title (About / Services / Careers / Contact) */
 .page-hero {
   background-color: var(--navy);
   padding: var(--sp-8) 0;
@@ -196,6 +197,13 @@ a:focus-visible, button:focus-visible {
 
 .page-hero h1 {
   color: var(--white);
+  margin-top: var(--sp-2);
+}
+
+.page-hero__intro {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
   margin-top: var(--sp-2);
 }
 
@@ -213,7 +221,7 @@ a:focus-visible, button:focus-visible {
   color: var(--white);
 }
 
-/* CTA BANNER — full-width navy */
+/* CTA BANNER - full-width navy */
 .cta-banner {
   background-color: var(--navy);
   padding: 80px 0;
@@ -310,7 +318,7 @@ a:focus-visible, button:focus-visible {
   color: #9A3412;
 }
 
-/* IMAGE PLACEHOLDER — visible label, no external image deps */
+/* IMAGE PLACEHOLDER - visible label, no external image deps */
 .img-placeholder {
   display: flex;
   align-items: center;
@@ -325,7 +333,7 @@ a:focus-visible, button:focus-visible {
   min-height: 280px;
 }
 
-/* HONEYPOT — visually hidden anti-bot field; humans never see or fill it */
+/* HONEYPOT - visually hidden anti-bot field; humans never see or fill it */
 .hp-field {
   position: absolute !important;
   left: -9999px !important;
@@ -335,7 +343,7 @@ a:focus-visible, button:focus-visible {
   opacity: 0;
 }
 
-/* MOTION — fade-in on page mount */
+/* MOTION - fade-in on page mount */
 @keyframes fade-up {
   from {
     opacity: 0;

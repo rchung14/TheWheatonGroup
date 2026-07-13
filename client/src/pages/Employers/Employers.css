@@ -1,4 +1,4 @@
-/* Value props — 3-up cards */
+/* Value props - 3-up cards */
 .employers-props__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6,7 +6,7 @@
   margin-top: var(--sp-6);
 }
 
-/* How it works — 4 photo steps */
+/* How it works - 4 photo steps */
 .employers-steps__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

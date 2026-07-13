@@ -1,4 +1,4 @@
-/* HERO — split layout, off-white background */
+/* HERO - split layout, off-white background */
 .home-hero {
   background-color: var(--off-white);
   border-left: 4px solid var(--navy);
@@ -42,7 +42,7 @@
   object-fit: cover;
 }
 
-/* ABOUT SNAPSHOT — 2-col split */
+/* ABOUT SNAPSHOT - 2-col split */
 .home-about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -64,7 +64,7 @@
   object-fit: cover;
 }
 
-/* SERVICES PREVIEW — 2-up cards */
+/* SERVICES PREVIEW - 2-up cards */
 .home-services__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -76,7 +76,7 @@
   margin-bottom: var(--sp-3);
 }
 
-/* WHY TWG — 3 differentiators */
+/* WHY TWG - 3 differentiators */
 .home-stats__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

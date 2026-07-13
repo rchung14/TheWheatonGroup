@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import './HomePage.css';
+import { Helmet } from 'react-helmet-async';
 import Seo from '../../components/Seo/Seo';
 import { Link } from 'react-router-dom';
 import { pingBackend } from '../../config';
@@ -11,12 +12,14 @@ const SERVICES = [
   {
     icon: 'target',
     title: 'Direct Placement',
-    body: 'Find the right fit for your hard-to-fill positions. We deliver top talent for roles open for 30+ days, backed by a 90-day guarantee — pay only when we succeed.',
+    body: 'Find the right fit for your hard-to-fill positions. We deliver top talent for roles open for 30+ days, backed by a 90-day guarantee. You pay only when we succeed.',
+    linkText: 'Learn more about Direct Placement',
   },
   {
     icon: 'clock',
     title: 'Contract Recruiting',
-    body: 'Flexible staffing solutions tailored to your needs. Perfect for short or long-term projects, surge hiring, and proposal efforts — hire by the hour, cancel anytime.',
+    body: 'Flexible staffing solutions tailored to your needs. Perfect for short or long-term projects, surge hiring, and proposal efforts. Hire by the hour and cancel anytime.',
+    linkText: 'Learn more about Contract Recruiting',
   },
 ];
 
@@ -34,7 +37,7 @@ const STATS = [
   {
     value: 'Success-Based',
     label: 'Pricing',
-    body: 'You only pay for positions we successfully fill — a risk-free recruitment process.',
+    body: 'You only pay for positions we successfully fill, making the recruitment process risk-free.',
   },
 ];
 
@@ -48,10 +51,21 @@ export const HomePage = () => {
     <main className="home">
       <Seo
         title="The Wheaton Group, LLC | Talent Acquisition & Recruiting"
-        description="Talent acquisition & recruiting from The Wheaton Group, LLC — direct placement with a 90-day guarantee plus flexible, hourly contract recruiting."
+        description="Talent acquisition & recruiting from The Wheaton Group, LLC: direct placement with a 90-day guarantee plus flexible contract recruiting for the federal sector and beyond."
       />
+      {/* Preload the LCP hero image (AVIF preferred, matches the <picture> below) */}
+      <Helmet>
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imageSrcSet="/assets/images/hero-img1-480.avif 480w, /assets/images/hero-img1-840.avif 840w, /assets/images/hero-img1-1280.avif 1280w"
+          imageSizes="(max-width: 1024px) 100vw, 40vw"
+          fetchpriority="high"
+        />
+      </Helmet>
 
-      {/* Hero — split layout, off-white bg */}
+      {/* Hero - split layout, off-white bg */}
       <section className="home-hero">
         <div className="container home-hero__grid">
           <div className="home-hero__copy">
@@ -59,9 +73,11 @@ export const HomePage = () => {
               Your Talent Acquisition Partner in Identifying the Right Candidate.
             </h1>
             <p className="home-hero__subtext">
-              The Wheaton Group, LLC connects organizations with professionals
-              who have the right skills and align with their vision — through
-              direct placement and contract recruiting built on results.
+              The Wheaton Group, LLC connects organizations, from federal
+              sector contractors to professional services firms, with
+              professionals who have the right skills and align with their
+              vision, through direct placement and contract recruiting built
+              on results.
             </p>
             <div className="home-hero__ctas">
               <Button to="/services" variant="primary" pill>Our Services</Button>
@@ -69,18 +85,29 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="home-hero__image">
-            <img
-              src="/assets/images/hero-img1.webp"
-              alt="Two business professionals working out a solution"
-              width="1280"
-              height="854"
-              fetchpriority="high"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/assets/images/hero-img1-480.avif 480w, /assets/images/hero-img1-840.avif 840w, /assets/images/hero-img1-1280.avif 1280w"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <img
+                src="/assets/images/hero-img1.webp"
+                srcSet="/assets/images/hero-img1-480.webp 480w, /assets/images/hero-img1-840.webp 840w, /assets/images/hero-img1-1280.webp 1280w"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                alt="Two business professionals working out a solution"
+                width="1280"
+                height="854"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </section>
 
-      {/* About snapshot — copy left, image right */}
+      {/* About snapshot - copy left, image right */}
       <section className="section">
         <div className="container home-about__grid">
           <div className="home-about__copy">
@@ -100,22 +127,25 @@ export const HomePage = () => {
           <div className="home-about__image">
             <img
               src="/assets/images/whoweare-img1.webp"
+              srcSet="/assets/images/whoweare-img1-480.webp 480w, /assets/images/whoweare-img1-760.webp 760w, /assets/images/whoweare-img1-1280.webp 1280w"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               alt="A one-on-one meeting between a recruiter and a candidate"
               width="1280"
               height="854"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
       </section>
 
-      {/* Services preview — 2-up cards */}
+      {/* Services preview - 2-up cards */}
       <section className="section section--off-white">
         <div className="container">
           <SectionEyebrow>Talent Solutions</SectionEyebrow>
           <h2>Direct Placement and Contract Recruiting.</h2>
           <div className="home-services__grid">
-            {SERVICES.map(({ icon, title, body }) => (
+            {SERVICES.map(({ icon, title, body, linkText }) => (
               <div key={title} className="card">
                 <span className="card__icon">
                   <Icon name={icon} />
@@ -123,7 +153,7 @@ export const HomePage = () => {
                 <h3>{title}</h3>
                 <p>{body}</p>
                 <Link to="/services" className="arrow-link">
-                  Learn More <Icon name="arrow-right" size={18} />
+                  {linkText} <Icon name="arrow-right" size={18} />
                 </Link>
               </div>
             ))}
@@ -131,7 +161,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Why TWG — 3 differentiators */}
+      {/* Why TWG - 3 differentiators */}
       <section className="section">
         <div className="container">
           <SectionEyebrow>Why TWG</SectionEyebrow>
@@ -154,7 +184,7 @@ export const HomePage = () => {
           <SectionEyebrow>Get Started</SectionEyebrow>
           <h2>Ready to find the right fit?</h2>
           <p>
-            Tell us about the role you need to fill — we'll handle the rest.
+            Tell us about the role you need to fill, and we'll handle the rest.
           </p>
           <Button to="/contact" variant="light">Contact Us</Button>
         </div>

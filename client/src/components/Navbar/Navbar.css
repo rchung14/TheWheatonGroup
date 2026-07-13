@@ -1,4 +1,4 @@
-/* NavBar — DESIGN.md → Components → Navigation
+/* NavBar - DESIGN.md → Components → Navigation
    Sticky positioning lives on <header> in global.css. Solid navy, no shadow. */
 .navbar {
   background-color: var(--navy);

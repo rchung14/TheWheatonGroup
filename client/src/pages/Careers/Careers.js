@@ -55,7 +55,7 @@ export const Careers = () => {
         setJobs(cleanedJobs);
       })
       .catch(() => {
-        // Listing fetch failed — the empty state below covers it.
+        // Listing fetch failed - the empty state below covers it.
       });
   }, []);
 
@@ -130,12 +130,15 @@ export const Careers = () => {
 
   return (
     <main className="careers">
+      {/* noIndex: with no live listings this page would look like a soft 404
+          to Google. Remove the flag once real job listings are published. */}
       <Seo
         title="Open Jobs & Careers | The Wheaton Group"
         description="Browse open remote, hybrid, and on-site roles. Search jobs by title, city, and work type, then apply directly through The Wheaton Group, LLC."
+        noIndex
       />
 
-      {/* Page hero — navy bar */}
+      {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
           <SectionEyebrow>Careers</SectionEyebrow>
@@ -217,7 +220,7 @@ export const Careers = () => {
             </Button>
           </form>
 
-          {/* Work type filter pills — apply instantly */}
+          {/* Work type filter pills - apply instantly */}
           <div className="careers-search__pills" role="group" aria-label="Filter by work type">
             {WORK_TYPES.map((type) => (
               <button
@@ -266,11 +269,29 @@ export const Careers = () => {
             <div className="careers-empty">
               <h3>No roles match your search.</h3>
               <p>
-                Check back soon or send us your resume — we&rsquo;ll reach out
-                when the right role opens up.
+                Check back soon or send us your resume, and we&rsquo;ll reach
+                out when the right role opens up.
               </p>
             </div>
           )}
+
+          {/* Evergreen context so the page has substance between postings */}
+          <div className="careers-about">
+            <h2>The Roles We Recruit For.</h2>
+            <p>
+              The Wheaton Group, LLC places professionals with federal sector
+              contractors, consulting and professional services firms, and
+              growing commercial organizations. Typical searches include
+              program and project managers, proposal and capture specialists,
+              finance and accounting professionals, software engineers and
+              other technologists, and the hard-to-fill specialist roles that
+              sit open for 30 days or longer. Openings move quickly, and many
+              are filled through our network before they are ever posted here.
+              If you don&rsquo;t see the right fit, send us your resume and
+              we&rsquo;ll reach out when a matching role opens up.
+            </p>
+          </div>
+
 
           {totalPages > 1 && (
             <div className="careers-pagination">

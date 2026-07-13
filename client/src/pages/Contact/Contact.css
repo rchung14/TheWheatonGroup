@@ -1,4 +1,4 @@
-/* Split layout — form left, contact info right */
+/* Split layout - form left, contact info right */
 .contact__grid {
   display: grid;
   grid-template-columns: 3fr 2fr;

@@ -25,7 +25,7 @@ const JobPage = () => {
   const [applicantName, setApplicantName] = useState("");
   const [applicantEmail, setApplicantEmail] = useState("");
   const [applicantPhone, setApplicantPhone] = useState("");
-  const [website, setWebsite] = useState(""); // honeypot — stays empty for humans
+  const [website, setWebsite] = useState(""); // honeypot - stays empty for humans
   const [files, setFiles] = useState([]);
 
   // Create a ref for the file inputs
@@ -132,7 +132,7 @@ const JobPage = () => {
   // Google Jobs / ATS structured data for this listing
   // Derived from the same `job` object that renders this page so the structured
   // data never drifts from the visible listing. Fields the backend doesn't yet
-  // supply fall back to documented placeholders — see the SEO summary; replace
+  // supply fall back to documented placeholders - see the SEO summary; replace
   // datePosted / validThrough / employmentType / salary with real values.
   const isRemote = (job.workType || "").toLowerCase() === "remote";
   const jobPostingSchema = {
@@ -140,7 +140,7 @@ const JobPage = () => {
     "@type": "JobPosting",
     title: job.jobTitle,
     description: job.description || `Apply for ${job.jobTitle} through The Wheaton Group, LLC.`,
-    // datePosted is REQUIRED by Google — emitted only when the backend provides
+    // datePosted is REQUIRED by Google - emitted only when the backend provides
     // it; without it the listing won't qualify for the Jobs rich result.
     ...(job.datePosted && { datePosted: job.datePosted }),
     ...(job.validThrough && { validThrough: job.validThrough }),
@@ -149,7 +149,7 @@ const JobPage = () => {
       "@type": "Organization",
       name: job.company || "The Wheaton Group, LLC",
       sameAs: "https://www.wheaton-group.com",
-      logo: "https://www.wheaton-group.com/assets/images/og-image.jpg",
+      logo: "https://www.wheaton-group.com/og-card.png",
     },
     identifier: {
       "@type": "PropertyValue",
@@ -190,7 +190,7 @@ const JobPage = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
       />
 
-      {/* Page hero — navy bar */}
+      {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
           <SectionEyebrow>Open Role</SectionEyebrow>
@@ -243,7 +243,7 @@ const JobPage = () => {
           <SectionEyebrow>Apply</SectionEyebrow>
           <h2>Apply for this Job.</h2>
           <form onSubmit={handleSubmit} className="jobpage-form">
-            {/* Honeypot — hidden from humans, catches naive bots */}
+            {/* Honeypot - hidden from humans, catches naive bots */}
             <div className="hp-field" aria-hidden="true">
               <label htmlFor="website">Website</label>
               <input

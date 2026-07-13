@@ -14,7 +14,7 @@ const INITIAL_FORM = {
   phoneNumber: '',
   serviceInterest: 'Not Sure',
   message: '',
-  website: '', // honeypot — stays empty for humans
+  website: '', // honeypot - stays empty for humans
 };
 
 export const Contact = () => {
@@ -78,11 +78,11 @@ export const Contact = () => {
   return (
     <main className="contact">
       <Seo
-        title="Contact | The Wheaton Group — Hire the Right Candidate"
+        title="Contact | The Wheaton Group, LLC"
         description="Partner with The Wheaton Group, LLC to hire the right candidate. Call, email, or message us about direct placement or contract recruiting today."
       />
 
-      {/* Page hero — navy bar */}
+      {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
           <SectionEyebrow>Success Starts Here</SectionEyebrow>
@@ -93,7 +93,7 @@ export const Contact = () => {
         </div>
       </section>
 
-      {/* Split layout — form left, contact info right */}
+      {/* Split layout - form left, contact info right */}
       <section className="section">
         <div className="container contact__grid">
           <div className="contact__form-col">
@@ -101,7 +101,7 @@ export const Contact = () => {
             <h2>Leave us a message. Let&rsquo;s get started.</h2>
 
             <form onSubmit={handleSubmit} className="contact__form">
-              {/* Honeypot — hidden from humans, catches naive bots */}
+              {/* Honeypot - hidden from humans, catches naive bots */}
               <div className="hp-field" aria-hidden="true">
                 <label htmlFor="website">Website</label>
                 <input
@@ -201,7 +201,7 @@ export const Contact = () => {
             <h3>Prefer to reach out directly?</h3>
             <p>
               Tell us about the role you&rsquo;re hiring for or the opportunity
-              you&rsquo;re looking for — we typically respond within one
+              you&rsquo;re looking for. We typically respond within one
               business day.
             </p>
             <div className="contact__info-links">
@@ -213,9 +213,9 @@ export const Contact = () => {
               </a>
             </div>
             <p className="contact__info-note">
-              Every engagement starts with a conversation — no commitment, no
-              pressure. We&rsquo;ll listen first and recommend the right
-              approach for your situation.
+              Every engagement starts with a conversation, with no commitment
+              and no pressure. We&rsquo;ll listen first and recommend the
+              right approach for your situation.
             </p>
           </aside>
         </div>
