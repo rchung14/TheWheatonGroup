@@ -12,13 +12,14 @@ const SERVICES = [
   {
     icon: 'target',
     title: 'Direct Placement',
+    tag: '90-Day Guarantee',
     body: 'Find the right fit for your hard-to-fill positions. We deliver top talent for roles open for 30+ days, backed by a 90-day guarantee. You pay only when we succeed.',
     linkText: 'Learn more about Direct Placement',
   },
   {
     icon: 'clock',
     title: 'Contract Recruiting',
-    body: 'Flexible staffing solutions tailored to your needs. Perfect for short or long-term projects, surge hiring, and proposal efforts. Hire by the hour and cancel anytime.',
+    body: 'Flexible recruiting capacity for short or long-term projects, surge hiring, and proposal efforts. Hire by the hour and cancel anytime.',
     linkText: 'Learn more about Contract Recruiting',
   },
 ];
@@ -79,9 +80,8 @@ export const HomePage = () => {
             <p className="home-hero__subtext">
               The Wheaton Group, LLC connects organizations, from federal
               sector contractors to professional services firms, with
-              professionals who have the right skills and align with their
-              vision, through direct placement and contract recruiting built
-              on results.
+              professionals who have the right skills and fit the team,
+              through direct placement and contract recruiting.
             </p>
             <div className="home-hero__ctas">
               <Button to="/services" variant="primary" pill>Our Services</Button>
@@ -118,11 +118,10 @@ export const HomePage = () => {
             <SectionEyebrow>Who We Are</SectionEyebrow>
             <h2>Your Trusted Talent Solutions Partner.</h2>
             <p>
-              The Wheaton Group, LLC (TWG) is dedicated to helping you find the
-              perfect opportunity to showcase your skills. By understanding your
-              expertise and career goals, we connect you with companies that
-              value your talent, ensuring a seamless match that supports your
-              growth and success.
+              The Wheaton Group, LLC (TWG) helps you find a role that fits your
+              skills. By understanding your experience and career goals, we
+              connect you with companies that value your work and where you can
+              do it well.
             </p>
             <Link to="/about" className="arrow-link">
               Learn more about us <Icon name="arrow-right" size={18} />
@@ -149,12 +148,15 @@ export const HomePage = () => {
           <SectionEyebrow>Talent Solutions</SectionEyebrow>
           <h2>Direct Placement and Contract Recruiting.</h2>
           <div className="home-services__grid">
-            {SERVICES.map(({ icon, title, body, linkText }) => (
-              <div key={title} className="card">
+            {SERVICES.map(({ icon, title, tag, body, linkText }) => (
+              <div key={title} className="card home-service">
                 <span className="card__icon">
                   <Icon name={icon} />
                 </span>
-                <h3>{title}</h3>
+                <div className="home-service__head">
+                  <h3>{title}</h3>
+                  {tag && <span className="guarantee-tag">{tag}</span>}
+                </div>
                 <p>{body}</p>
                 <Link to="/services" className="arrow-link">
                   {linkText} <Icon name="arrow-right" size={18} />
@@ -165,8 +167,8 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Why TWG - 3 differentiators */}
-      <section className="section">
+      {/* Why TWG - 3 differentiators, dark proof-point band */}
+      <section className="home-stats">
         <div className="container">
           <SectionEyebrow>Why TWG</SectionEyebrow>
           <h2>Hiring Without the Risk.</h2>

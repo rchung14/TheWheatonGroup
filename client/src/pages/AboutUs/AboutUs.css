@@ -12,10 +12,10 @@
   margin-top: var(--sp-3);
 }
 
-/* What sets us apart - 4-up cards */
+/* What sets us apart - 2x2 cards */
 .about-diff__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-3);
   margin-top: var(--sp-6);
 }

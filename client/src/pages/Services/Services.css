@@ -57,14 +57,14 @@
 .services-compare__wrap {
   margin-top: var(--sp-6);
   overflow-x: auto;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
 }
 
 .services-compare {
   width: 100%;
   border-collapse: collapse;
   background-color: var(--white);
-  border: 1px solid var(--gray-light);
-  border-radius: var(--radius);
 }
 
 .services-compare th,
@@ -93,6 +93,11 @@
 
 .services-compare td {
   color: var(--gray-mid);
+}
+
+/* Zebra striping on data cells for easier row scanning */
+.services-compare tbody tr:nth-child(even) td {
+  background-color: var(--off-white);
 }
 
 .services-compare tbody tr:last-child th,

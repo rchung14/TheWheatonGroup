@@ -75,18 +75,14 @@ export const AboutUs = () => {
             A real partner. Personalized hiring solutions.
           </h2>
           <p>
-            At The Wheaton Group, LLC, we understand that hiring the right
-            people is critical to a company&rsquo;s success. That&rsquo;s why we
-            take a personalized, strategic approach to talent acquisition,
-            working closely with businesses to understand their unique needs,
-            company culture, and long-term goals.
+            At The Wheaton Group, LLC, hiring the right people is the whole
+            job. We work closely with each company to learn its needs, culture,
+            and goals before we start a search.
           </p>
           <p>
-            Through our tailored process, we connect organizations with top
-            professionals who not only have the right skills but also align
-            with their vision and values. With a commitment to quality,
-            efficiency, and lasting partnerships, we help companies build
-            strong, high-performing teams that drive growth and success.
+            We connect organizations with professionals who have the right
+            skills and fit the team&rsquo;s values. By focusing on long-term fit
+            over volume, we help companies build teams that last.
           </p>
         </div>
       </section>
@@ -131,9 +127,9 @@ export const AboutUs = () => {
                 experience recruiting for clients in the federal sector.
               </p>
               <p>
-                Discover how William&rsquo;s extensive experience and passion
-                for talent acquisition can transform your hiring process.
-                Let&rsquo;s build a diverse and successful workforce together.
+                William works directly with every client and handles each
+                search himself. If you&rsquo;re hiring or looking for your next
+                role, reach out to start a conversation.
               </p>
               <div className="about-founder__links">
                 <a

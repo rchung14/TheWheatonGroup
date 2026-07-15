@@ -52,6 +52,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keep anchored content clear of the sticky header */
+[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   font-family: var(--font-body);
   font-size: 16px;
@@ -71,13 +76,15 @@ h1, h2 {
 h1 {
   font-size: 42px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 h2 {
   font-size: 32px;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 h3 {

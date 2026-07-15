@@ -152,10 +152,9 @@ export const Services = () => {
             <SectionEyebrow />
             <h2>Direct Placement</h2>
             <p>
-              Our direct placement service is designed to help you fill
-              critical positions that have remained open for extended periods.
-              We specialize in sourcing and securing top-tier talent for roles
-              that have been vacant for 30 days or longer: the searches where
+              Direct placement helps you fill critical positions that have
+              stayed open too long. We specialize in roles that have been
+              vacant for 30 days or longer: the searches where
               job boards have gone quiet, internal referrals are exhausted, and
               every week the seat stays empty costs the team momentum.
             </p>
@@ -201,8 +200,8 @@ export const Services = () => {
             <p>
               Because pricing is success-based, you pay only for positions we
               actually fill. There are no retainers and no charges for a
-              search that doesn&rsquo;t end in a hire. It is a genuinely
-              risk-free way to take your hardest searches off your desk.
+              search that doesn&rsquo;t end in a hire. It&rsquo;s a risk-free
+              way to take your hardest searches off your desk.
             </p>
           </div>
           <aside className="services-callout">
@@ -211,9 +210,9 @@ export const Services = () => {
             </span>
             <h3>90-Day Guarantee</h3>
             <p>
-              You can trust that the candidates we place will meet your
-              expectations. Every placement is backed for 90 days, and you pay
-              only when we succeed.
+              Every placement is backed for 90 days from the start date. If a
+              hire doesn&rsquo;t work out, we restart the search at no extra
+              cost, and you pay only when we succeed.
             </p>
           </aside>
         </div>
@@ -226,9 +225,9 @@ export const Services = () => {
             <SectionEyebrow />
             <h2>Contract Recruiting</h2>
             <p>
-              Ideal for projects requiring flexibility, our contract recruiting
-              service supports your short-term or long-term hiring needs.
-              Instead of paying a fee per hire, you get dedicated recruiting
+              Built for hiring that ebbs and flows, contract recruiting
+              supports your short- or long-term needs. Instead of paying a fee
+              per hire, you get dedicated recruiting
               capacity by the hour: an experienced recruiter working as an
               embedded extension of your talent acquisition team.
             </p>
@@ -244,9 +243,9 @@ export const Services = () => {
               support under your banner.
             </p>
             <p>
-              Our contracts are designed with your convenience in mind. You set
-              the hours, we track and report them transparently, and you can
-              scale up, scale down, or cancel at any time without penalties.
+              The terms stay flexible. You set the hours, we track and report
+              them, and you can scale up, scale down, or cancel at any time
+              without penalties.
               When the surge ends, the engagement ends, with no severance, no
               bench, and no long-term commitment.
             </p>
@@ -273,7 +272,7 @@ export const Services = () => {
               <li>The freedom to scale or cancel anytime, without penalties</li>
             </ul>
             <p>
-              The result is agility: recruiting horsepower exactly when you
+              The result is flexibility: recruiting help exactly when you
               need it, at a predictable hourly cost, without the overhead of a
               permanent hire or the per-placement fees of a search firm.
             </p>
