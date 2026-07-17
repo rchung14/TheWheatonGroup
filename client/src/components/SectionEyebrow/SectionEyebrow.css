@@ -1,17 +1,19 @@
 .eyebrow {
-  display: inline-block;
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--sp-2);
 }
 
-/* On navy/dark backgrounds (page heroes, stats band) accent blue reads too
-   dark to hold contrast - use translucent white instead. The CTA banner
-   sits on the light accent-lt tint, so it keeps the default accent color. */
-.page-hero .eyebrow,
-.home-stats .eyebrow {
-  color: rgba(255, 255, 255, 0.7);
+.eyebrow__rule {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--navy);
+}
+
+/* On navy backgrounds (page heroes, CTA banners) a navy rule would vanish -
+   use the gold accent there instead. */
+.page-hero .eyebrow__rule,
+.cta-banner .eyebrow__rule {
+  background-color: var(--accent-gold);
 }

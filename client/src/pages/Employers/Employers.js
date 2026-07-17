@@ -78,7 +78,7 @@ export const Employers = () => {
       {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
-          <SectionEyebrow>Employers</SectionEyebrow>
+          <SectionEyebrow />
           <h1>Hire the Right Candidate, Guaranteed.</h1>
           <p className="page-hero__intro">
             From federal sector contractors to professional services firms, we
@@ -148,7 +148,7 @@ export const Employers = () => {
             Tell us about the role, and we&rsquo;ll bring you a curated
             shortlist, risk-free.
           </p>
-          <Button to="/contact" variant="primary">Contact Us</Button>
+          <Button to="/contact" variant="light">Contact Us</Button>
         </div>
       </section>
     </main>

@@ -160,7 +160,7 @@ export const AboutUs = () => {
             Whether you&rsquo;re hiring or job hunting, the first conversation
             is free, and worth it.
           </p>
-          <Button to="/contact" variant="primary">Contact Us</Button>
+          <Button to="/contact" variant="light">Contact Us</Button>
         </div>
       </section>
     </main>

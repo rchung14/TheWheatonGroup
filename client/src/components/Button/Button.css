@@ -23,31 +23,30 @@
   border-radius: 999px;
 }
 
-/* Primary: accent bg + white text - the site's one action color */
+/* Primary: navy bg + white text */
 .btn--primary {
-  background-color: var(--accent);
-  color: var(--white);
-}
-
-.btn--primary:hover {
   background-color: var(--navy);
   color: var(--white);
 }
 
-/* Ghost: transparent + gray border + navy text */
+.btn--primary:hover {
+  background-color: var(--navy-dark);
+  color: var(--white);
+}
+
+/* Ghost: transparent + navy border + navy text */
 .btn--ghost {
   background-color: transparent;
-  border: 1.5px solid var(--gray-300);
+  border: 1.5px solid var(--navy);
   color: var(--navy);
 }
 
 .btn--ghost:hover {
   background-color: var(--navy);
-  border-color: var(--navy);
   color: var(--white);
 }
 
-/* Light: white bg + navy text (for navy/dark backgrounds) */
+/* Light: white bg + navy text (for navy backgrounds) */
 .btn--light {
   background-color: var(--white);
   color: var(--navy);
@@ -58,14 +57,13 @@
   color: var(--navy-dark);
 }
 
-/* Accent-on-tint: for use on accent-lt backgrounds where a white-bg button
-   would disappear */
+/* Gold accent: key CTAs only */
 .btn--gold {
-  background-color: var(--accent);
-  color: var(--white);
+  background-color: var(--accent-gold);
+  color: var(--black);
 }
 
 .btn--gold:hover {
-  background-color: var(--navy);
-  color: var(--white);
+  background-color: #B8983F;
+  color: var(--black);
 }

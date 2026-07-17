@@ -1,6 +1,6 @@
 /* Footer - DESIGN.md → Components → Footer */
 .footer {
-  background-color: var(--navy-dark);
+  background-color: var(--navy);
   color: rgba(255, 255, 255, 0.85);
   padding: var(--sp-8) 0 40px;
 }
@@ -52,12 +52,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.footer__contact a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .footer__divider {

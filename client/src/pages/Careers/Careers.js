@@ -334,7 +334,7 @@ export const Careers = () => {
             Submit your resume and we&rsquo;ll keep you in mind as new
             opportunities open up.
           </p>
-          <Button href="mailto:will@wheaton-group.com" variant="primary">
+          <Button href="mailto:will@wheaton-group.com" variant="light">
             Submit Your Resume
           </Button>
         </div>

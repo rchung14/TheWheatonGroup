@@ -31,18 +31,22 @@ const COMPARISON = [
 
 const PROCESS = [
   {
+    icon: 'search',
     title: 'Discovery',
     body: 'We learn the role, the team, and what success looks like.',
   },
   {
+    icon: 'users',
     title: 'Sourcing',
     body: 'We tap our network to surface qualified, interested candidates.',
   },
   {
+    icon: 'file-text',
     title: 'Vetting',
     body: 'You meet a curated shortlist, not a flood of resumes.',
   },
   {
+    icon: 'check-circle',
     title: 'Placement',
     body: 'We close the offer and stay engaged through onboarding.',
   },
@@ -128,7 +132,7 @@ export const Services = () => {
       {/* Page hero - navy bar */}
       <section className="page-hero">
         <div className="container">
-          <SectionEyebrow>Services</SectionEyebrow>
+          <SectionEyebrow />
           <h1>Direct Placement and Contract Recruiting.</h1>
           <p className="page-hero__intro">
             Two ways to hire with one standard of quality, built on 15+ years
@@ -145,7 +149,7 @@ export const Services = () => {
       <section className="section">
         <div className="container services-detail__grid">
           <div className="services-detail__copy">
-            <SectionEyebrow>Direct Placement</SectionEyebrow>
+            <SectionEyebrow />
             <h2>Direct Placement</h2>
             <p>
               Direct placement helps you fill critical positions that have
@@ -218,7 +222,7 @@ export const Services = () => {
       <section className="section section--off-white">
         <div className="container services-detail__grid">
           <div className="services-detail__copy">
-            <SectionEyebrow>Contract Recruiting</SectionEyebrow>
+            <SectionEyebrow />
             <h2>Contract Recruiting</h2>
             <p>
               Built for hiring that ebbs and flows, contract recruiting
@@ -289,7 +293,7 @@ export const Services = () => {
       {/* Comparison table */}
       <section className="section">
         <div className="container">
-          <SectionEyebrow>Compare</SectionEyebrow>
+          <SectionEyebrow />
           <h2>Which Service Fits Your Need?</h2>
           <div className="services-compare__wrap">
             <table className="services-compare">
@@ -317,12 +321,15 @@ export const Services = () => {
       {/* Process timeline */}
       <section className="section section--off-white">
         <div className="container">
-          <SectionEyebrow>Our Process</SectionEyebrow>
+          <SectionEyebrow />
           <h2>From First Call to Placed Candidate.</h2>
           <div className="services-process__grid">
-            {PROCESS.map(({ title, body }, index) => (
+            {PROCESS.map(({ icon, title, body }, index) => (
               <div key={title} className="services-step">
                 <span className="services-step__num">{index + 1}</span>
+                <span className="card__icon">
+                  <Icon name={icon} />
+                </span>
                 <h3>{title}</h3>
                 <p>{body}</p>
               </div>
@@ -334,7 +341,7 @@ export const Services = () => {
       {/* FAQ */}
       <section className="section">
         <div className="container">
-          <SectionEyebrow>FAQ</SectionEyebrow>
+          <SectionEyebrow />
           <h2>Frequently Asked Questions.</h2>
           <div className="services-faq">
             {FAQS.map(({ question, answer }) => (
@@ -350,13 +357,13 @@ export const Services = () => {
       {/* CTA banner */}
       <section className="cta-banner">
         <div className="container cta-banner__inner">
-          <SectionEyebrow>Get Started</SectionEyebrow>
+          <SectionEyebrow />
           <h2>Not sure which fits? Let&rsquo;s talk.</h2>
           <p>
             Tell us about your hiring challenge and we&rsquo;ll recommend the
             right approach, with no obligation.
           </p>
-          <Button to="/contact" variant="primary">Contact Us</Button>
+          <Button to="/contact" variant="light">Contact Us</Button>
         </div>
       </section>
     </main>

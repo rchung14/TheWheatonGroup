@@ -1,43 +1,25 @@
 /* =====================================================
    The Wheaton Group, LLC - Global Styles
    Design system: .stitch/designs/DESIGN.md
-   Fonts (Inter) loaded in public/index.html
+   Fonts (Playfair Display + Inter) loaded in public/index.html
    ===================================================== */
 
 :root {
   /* Color palette */
   --navy: #0D1B5E;
-  --navy-dark: #090F3A;
-  --navy-light: #1A2E7A;
+  --navy-dark: #09144A;
+  --navy-light: #1A2D7A;
   --white: #FFFFFF;
-  --off-white: #F7F8FA;
-  --gray-100: #F0F2F5;
-  --gray-300: #CBD2DA;
-  --gray-500: #6B7685;
-  --gray-900: #111827;
-  /* Aliases so existing rules keep working under the new scale */
-  --black: var(--gray-900);
-  --gray-mid: var(--gray-500);
-  --gray-light: var(--gray-300);
-  /* Accent: CTAs, links, highlights - replaces the former gold accent */
-  --accent: #2F6FED;
-  --accent-lt: #EBF1FD;
+  --off-white: #F5F6FA;
+  --black: #0A0A0A;
+  /* WCAG AA: ≥4.5:1 on both white and --off-white (was #6B7280, 4.47:1 on off-white) */
+  --gray-mid: #5C6672;
+  --gray-light: #E5E7EB;
+  --accent-gold: #C9A84C;
 
   /* Typography */
-  --font-display: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: 'Playfair Display', 'Playfair Display Fallback', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-
-  /* Type scale */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-  --text-6xl: 3.75rem;
 
   /* Spacing - base unit 8px */
   --sp-1: 8px;
@@ -48,31 +30,12 @@
   --sp-8: 64px;
   --sp-12: 96px;
   --sp-16: 128px;
-  /* rem-based scale for new spec-driven markup */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
 
   /* Layout */
   --container: 1280px;
   --container-text: 720px;
   --radius: 8px;
   --radius-sm: 4px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 12px 32px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
 
   /* Motion */
   --transition: 200ms ease;
@@ -205,9 +168,8 @@ input:focus, select:focus, textarea:focus {
 
 /* Visible keyboard focus for interactive elements */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
 }
 
 /* Brand-colored text selection */
@@ -266,30 +228,27 @@ a:focus-visible, button:focus-visible {
   color: var(--white);
 }
 
-/* CTA BANNER - full-width accent tint, centered */
+/* CTA BANNER - full-width navy */
 .cta-banner {
-  background-color: var(--accent-lt);
-  padding: var(--space-24) 0;
+  background-color: var(--navy);
+  padding: 80px 0;
 }
 
 .cta-banner__inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
   gap: var(--sp-3);
-  max-width: 640px;
-  margin: 0 auto;
 }
 
 .cta-banner h2 {
-  font-size: var(--text-3xl);
-  color: var(--navy-dark);
+  font-size: 36px;
+  color: var(--white);
 }
 
 .cta-banner p {
-  font-size: var(--text-base);
-  color: var(--gray-mid);
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.75);
   max-width: 640px;
 }
 
@@ -299,13 +258,12 @@ a:focus-visible, button:focus-visible {
   border: 1px solid var(--gray-light);
   border-radius: var(--radius);
   padding: var(--sp-4);
-  box-shadow: var(--shadow-sm);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .card__icon {
