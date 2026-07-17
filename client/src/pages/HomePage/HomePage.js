@@ -74,6 +74,7 @@ export const HomePage = () => {
       <section className="home-hero">
         <div className="container home-hero__grid">
           <div className="home-hero__copy">
+            <SectionEyebrow>Talent Acquisition &amp; Recruiting</SectionEyebrow>
             <h1 className="home-hero__title">
               Your Talent Acquisition Partner in Identifying the Right Candidate.
             </h1>
@@ -111,9 +112,21 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* About snapshot - copy left, image right */}
-      <section className="section">
+      {/* About snapshot - image left, copy right, off-white bg for separation */}
+      <section className="section section--off-white">
         <div className="container home-about__grid">
+          <div className="home-about__image">
+            <img
+              src="/assets/images/whoweare-img1.webp"
+              srcSet="/assets/images/whoweare-img1-480.webp 480w, /assets/images/whoweare-img1-760.webp 760w, /assets/images/whoweare-img1-1280.webp 1280w"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              alt="A one-on-one meeting between a recruiter and a candidate"
+              width="1280"
+              height="854"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div className="home-about__copy">
             <SectionEyebrow>Who We Are</SectionEyebrow>
             <h2>Your Trusted Talent Solutions Partner.</h2>
@@ -127,32 +140,23 @@ export const HomePage = () => {
               Learn more about us <Icon name="arrow-right" size={18} />
             </Link>
           </div>
-          <div className="home-about__image">
-            <img
-              src="/assets/images/whoweare-img1.webp"
-              srcSet="/assets/images/whoweare-img1-480.webp 480w, /assets/images/whoweare-img1-760.webp 760w, /assets/images/whoweare-img1-1280.webp 1280w"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              alt="A one-on-one meeting between a recruiter and a candidate"
-              width="1280"
-              height="854"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
         </div>
       </section>
 
       {/* Services preview - 2-up cards */}
-      <section className="section section--off-white">
+      <section className="section">
         <div className="container">
           <SectionEyebrow>Talent Solutions</SectionEyebrow>
           <h2>Direct Placement and Contract Recruiting.</h2>
           <div className="home-services__grid">
-            {SERVICES.map(({ icon, title, tag, body, linkText }) => (
+            {SERVICES.map(({ icon, title, tag, body, linkText }, index) => (
               <div key={title} className="card home-service">
-                <span className="card__icon">
-                  <Icon name={icon} />
-                </span>
+                <div className="home-service__head">
+                  <span className="home-service__num">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="card__icon">
+                    <Icon name={icon} />
+                  </span>
+                </div>
                 <div className="home-service__head">
                   <h3>{title}</h3>
                   {tag && <span className="guarantee-tag">{tag}</span>}
@@ -192,7 +196,7 @@ export const HomePage = () => {
           <p>
             Tell us about the role you need to fill, and we'll handle the rest.
           </p>
-          <Button to="/contact" variant="light">Contact Us</Button>
+          <Button to="/contact" variant="primary">Contact Us</Button>
         </div>
       </section>
     </main>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Icon from '../Icon/Icon';
 import './Footer.css';
 
 const Footer = () => (
@@ -25,8 +26,12 @@ const Footer = () => (
         </nav>
 
         <div className="footer__contact">
-          <a href="mailto:will@wheaton-group.com">will@wheaton-group.com</a>
-          <a href="tel:+16097077128">(609) 707-7128</a>
+          <a href="mailto:will@wheaton-group.com">
+            <Icon name="mail" size={16} /> will@wheaton-group.com
+          </a>
+          <a href="tel:+16097077128">
+            <Icon name="phone" size={16} /> (609) 707-7128
+          </a>
         </div>
       </div>
 

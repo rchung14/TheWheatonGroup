@@ -1,14 +1,14 @@
 import React from 'react';
 import './SectionEyebrow.css';
 
-// Signature design element: a short 2px rule above section headings.
-// Replaces the former all-caps gold label (removed for readability and
-// WCAG contrast). Children are accepted for backwards compatibility with
-// existing call sites but intentionally not rendered.
-const SectionEyebrow = () => (
-  <div className="eyebrow" aria-hidden="true">
-    <span className="eyebrow__rule"></span>
-  </div>
-);
+// Section eyebrow: short uppercase, tracked label above H1/H2 headings.
+// Color is context-aware via CSS - accent on light section backgrounds,
+// translucent white on navy/dark sections (page hero, CTA banner, stats).
+// Renders nothing if no label is passed, so it's safe to omit on sections
+// that don't need one.
+const SectionEyebrow = ({ children }) => {
+  if (!children) return null;
+  return <span className="eyebrow">{children}</span>;
+};
 
 export default SectionEyebrow;

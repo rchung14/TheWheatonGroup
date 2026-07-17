@@ -31,7 +31,7 @@
 .services-callout {
   background-color: var(--white);
   border: 1px solid var(--gray-light);
-  border-top: 3px solid var(--accent-gold);
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius);
   padding: var(--sp-4);
 }
@@ -78,9 +78,9 @@
 
 .services-compare thead th {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 600;
-  background-color: var(--navy);
+  background-color: var(--navy-dark);
   color: var(--white);
 }
 
@@ -105,7 +105,7 @@
   border-bottom: none;
 }
 
-/* Process timeline - 4 steps */
+/* Process timeline - horizontal stepper on desktop, vertical on mobile */
 .services-process__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -124,18 +124,38 @@
 
 .services-step:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-md);
+}
+
+/* Connector line linking each step's badge to the next, desktop only */
+.services-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: calc(100% + 4px);
+  width: calc(var(--sp-3) - 8px);
+  height: 1px;
+  background-color: var(--gray-300);
 }
 
 .services-step__num {
-  position: absolute;
-  top: var(--sp-3);
-  right: var(--sp-3);
-  font-family: var(--font-display);
-  font-size: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--accent-lt);
+  color: var(--accent);
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--accent-gold);
   line-height: 1;
+  margin-bottom: var(--sp-3);
+}
+
+.services-step h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
 }
 
 .services-step p {
@@ -182,6 +202,10 @@
 
   .services-process__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-step:not(:last-child)::after {
+    display: none;
   }
 }
 

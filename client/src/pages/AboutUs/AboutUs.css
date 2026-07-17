@@ -23,7 +23,7 @@
 /* Leadership - founder card */
 .about-founder {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: var(--sp-6);
   align-items: start;
   margin-top: var(--sp-6);
@@ -34,7 +34,8 @@
   height: auto; /* override the height attribute so aspect-ratio wins */
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
 }
 
 .about-founder__bio p {
@@ -46,7 +47,7 @@
 .about-founder__links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-3);
+  gap: var(--space-6);
   margin-top: var(--sp-3);
 }
 
@@ -54,9 +55,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 15px;
+  font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--navy);
+  color: var(--accent);
 }
 
 .about-founder__links a:hover {
@@ -85,6 +86,6 @@
   }
 
   .about-founder__photo {
-    max-width: 280px;
+    max-width: 320px;
   }
 }
