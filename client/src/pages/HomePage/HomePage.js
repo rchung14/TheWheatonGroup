@@ -102,7 +102,6 @@ export const HomePage = () => {
                 alt="Two business professionals working out a solution"
                 width="1280"
                 height="854"
-                fetchpriority="high"
                 loading="eager"
                 decoding="async"
               />
