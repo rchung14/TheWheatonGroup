@@ -71,7 +71,7 @@ app.use(
 
 // Health check — pinged by cron every 5 minutes to keep the Render free
 // instance awake; the Firebase read keeps the database connection warm too.
-app.get('/', async (req, res) => {
+app.all('/', async (req, res) => {
   try {
     await database.ref('jobs').limitToFirst(1).once('value');
     res.status(200).json({ status: 'ok' });

@@ -5,9 +5,15 @@ export const API_BASE_URL =
 
 // Fire-and-forget ping to the Render backend. The server's "/" route also
 // reads Firebase RTDB, so one ping keeps both the Render instance and the
-// database connection warm.
+// database connection warm. Uses sendBeacon (falling back to fetch) because
+// a cold/timed-out fetch logs a console error that Lighthouse flags, while
+// beacon failures aren't surfaced as page resource errors.
 export const pingBackend = () => {
-  fetch(`${API_BASE_URL}/`).catch(() => {
-    // Keep-alive only - ignore failures so they never affect the UI.
-  });
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(`${API_BASE_URL}/`);
+  } else {
+    fetch(`${API_BASE_URL}/`).catch(() => {
+      // Keep-alive only - ignore failures so they never affect the UI.
+    });
+  }
 };
