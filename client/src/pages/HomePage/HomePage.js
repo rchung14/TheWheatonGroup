@@ -167,6 +167,51 @@ export const HomePage = () => {
         </div>
       </section>
 
+      {/* Who we serve - 2-up cards, employers vs. candidates */}
+      <section className="section">
+        <div className="container">
+          <SectionEyebrow>Who We Serve</SectionEyebrow>
+          <h2>Built for Two Kinds of Search.</h2>
+          <div className="home-services__grid">
+            <div className="card home-service">
+              <div className="home-service__head">
+                <h3>For Employers</h3>
+              </div>
+              <p>
+                We work with federal sector government contractors, the
+                consulting firms that support them, and professional
+                services, finance, and technology teams hiring for roles
+                that have been open 30 days or longer. Rather than running
+                every search through a large bench of junior recruiters, TWG
+                keeps engagements with the people who know your industry,
+                so requirements are understood the first time and
+                candidates are pre-qualified before you ever see a resume.
+              </p>
+              <Link to="/employers" className="arrow-link">
+                Partner with us <Icon name="arrow-right" size={18} />
+              </Link>
+            </div>
+            <div className="card home-service">
+              <div className="home-service__head">
+                <h3>For Job Seekers</h3>
+              </div>
+              <p>
+                Finding the right role is about fit, not just a title
+                match. We take the time to understand your experience,
+                what you want out of your next position, and the kind of
+                team you work best on, then introduce you directly to
+                hiring managers, not an applicant-tracking queue. Whether
+                you&rsquo;re looking for a direct-hire position or contract
+                work, you&rsquo;ll hear from a real person at every step.
+              </p>
+              <Link to="/careers" className="arrow-link">
+                Browse open roles <Icon name="arrow-right" size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why TWG - 3 differentiators, dark proof-point band */}
       <section className="home-stats">
         <div className="container">

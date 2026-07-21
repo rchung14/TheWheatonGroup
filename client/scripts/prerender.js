@@ -52,6 +52,7 @@ const ROUTES = [
   { route: '/careers', out: 'careers/index.html' },
   { route: '/contact', out: 'contact/index.html' },
   { route: '/privacy', out: 'privacy/index.html' },
+  { route: '/terms', out: 'terms/index.html' },
   { route: '/accessibility', out: 'accessibility/index.html' },
   { route: '/404', out: '404.html' },
 ];

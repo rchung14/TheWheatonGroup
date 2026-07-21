@@ -15,6 +15,7 @@ import Employers from './pages/Employers/Employers';
 import Careers from './pages/Careers/Careers';
 import JobPage from './pages/JobPage/JobPage';
 import Privacy from './pages/Legal/Privacy';
+import Terms from './pages/Legal/Terms';
 import Accessibility from './pages/Legal/Accessibility';
 import NotFound from './pages/NotFound/NotFound';
 import './styles/global.css';
@@ -41,6 +42,7 @@ export const AppRoutes = () => (
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/:jobId" element={<JobPage />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/accessibility" element={<Accessibility />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
