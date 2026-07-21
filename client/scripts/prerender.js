@@ -16,12 +16,24 @@
  * Dynamic, backend-driven job pages (/careers/:jobId) are intentionally NOT
  * prerendered - they change constantly, keep their client-rendered JSON-LD, and
  * continue to work via the SPA fallback to index.html.
+ *
+ * Every route other than "/" is React.lazy() in src/App.js (see that file),
+ * so rendering here can't use the synchronous renderToString: a lazy
+ * component that isn't already resolved makes it throw. Instead this uses
+ * the Node streaming API (renderToPipeableStream) and waits for onAllReady,
+ * which only fires once every Suspense boundary - including lazy imports -
+ * has resolved, giving the same complete, non-streamed HTML as before.
+ * babel-plugin-dynamic-import-node rewrites the lazy() factories' import()
+ * calls to route through require() so they go through this same
+ * babel-register transform instead of Node's native (JSX-incompatible) ESM
+ * loader.
  */
 require('@babel/register')({
   presets: [
     ['@babel/preset-env', { targets: { node: 'current' } }],
     ['@babel/preset-react', { runtime: 'automatic' }],
   ],
+  plugins: ['dynamic-import-node'],
   extensions: ['.js', '.jsx'],
   ignore: [/node_modules/],
   cache: false,
@@ -35,8 +47,9 @@ require('@babel/register')({
 
 const fs = require('fs');
 const path = require('path');
+const { Writable } = require('stream');
 const React = require('react');
-const ReactDOMServer = require('react-dom/server');
+const { renderToPipeableStream } = require('react-dom/server');
 const { StaticRouter } = require('react-router-dom/server');
 const { HelmetProvider } = require('react-helmet-async');
 const { AppRoutes } = require('../src/App');
@@ -71,23 +84,41 @@ const TEMPLATE = fs
   );
 
 function renderRoute(route) {
-  const helmetContext = {};
-  const body = ReactDOMServer.renderToString(
-    React.createElement(
-      HelmetProvider,
-      { context: helmetContext },
+  return new Promise((resolve, reject) => {
+    const helmetContext = {};
+    let body = '';
+    const collector = new Writable({
+      write(chunk, encoding, callback) {
+        body += chunk.toString();
+        callback();
+      },
+    });
+
+    const { pipe } = renderToPipeableStream(
       React.createElement(
-        StaticRouter,
-        { location: route },
-        React.createElement(AppRoutes)
-      )
-    )
-  );
-  return { body, helmet: helmetContext.helmet };
+        HelmetProvider,
+        { context: helmetContext },
+        React.createElement(
+          StaticRouter,
+          { location: route },
+          React.createElement(AppRoutes)
+        )
+      ),
+      {
+        onAllReady() {
+          collector.on('finish', () => resolve({ body, helmet: helmetContext.helmet }));
+          pipe(collector);
+        },
+        onError(error) {
+          reject(error);
+        },
+      }
+    );
+  });
 }
 
-function buildHtml(route) {
-  const { body, helmet } = renderRoute(route);
+async function buildHtml(route) {
+  const { body, helmet } = await renderRoute(route);
 
   // Per-route head tags from react-helmet-async (title/description/canonical/
   // OG/JSON-LD structured data).
@@ -111,15 +142,22 @@ function buildHtml(route) {
   return html;
 }
 
-console.log('Prerendering static routes (SSR)…');
-let ok = 0;
-for (const { route, out } of ROUTES) {
-  const html = buildHtml(route);
-  const outPath = path.join(BUILD_DIR, out);
-  fs.mkdirSync(path.dirname(outPath), { recursive: true });
-  fs.writeFileSync(outPath, html, 'utf8');
-  const title = (html.match(/<title[^>]*>(.*?)<\/title>/s) || [])[1] || '(no title)';
-  console.log(`  ✓ ${route.padEnd(12)} → ${out.padEnd(22)} | ${title}`);
-  ok++;
+async function main() {
+  console.log('Prerendering static routes (SSR)…');
+  let ok = 0;
+  for (const { route, out } of ROUTES) {
+    const html = await buildHtml(route);
+    const outPath = path.join(BUILD_DIR, out);
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, html, 'utf8');
+    const title = (html.match(/<title[^>]*>(.*?)<\/title>/s) || [])[1] || '(no title)';
+    console.log(`  ✓ ${route.padEnd(12)} → ${out.padEnd(22)} | ${title}`);
+    ok++;
+  }
+  console.log(`Prerender complete (${ok}/${ROUTES.length} routes).`);
 }
-console.log(`Prerender complete (${ok}/${ROUTES.length} routes).`);
+
+main().catch((error) => {
+  console.error('Prerender failed:', error);
+  process.exit(1);
+});
